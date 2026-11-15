@@ -1,0 +1,9 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Cascade Home Repair
+ORG:Cascade Home Repair
+TEL;TYPE=WORK,VOICE:+1-800-000-0000
+EMAIL;TYPE=WORK:info@example.com
+ADR;TYPE=WORK:;;Ballard;Seattle;WA;;USA
+NOTE:Fictional concept business — sample contact details from a B&C Web Services demo.
+END:VCARD
