@@ -387,6 +387,46 @@
     html.rv-on .rv { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
     html.rv-on .rv.in { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) { html.rv-on .rv { opacity: 1; transform: none; transition: none; } }
+  
+    /* V18 — BOLD pass: deeper palette, richer forest backdrop, heavier edges. */
+    :root {
+      --copper: #b25a12; --copper-dark: #7c3f0e; --copper-soft: #f3d3ac;
+      --pine-700: #123c2a; --pine-500: #256b47;
+      --sage: #93b78e; --sage-soft: #d7e6cd;
+      --line: #cdb488; --muted: #453a2c;
+    }
+    /* the background image: no blur, richer color, gentle vignette */
+    .page-bg { filter: saturate(1.22) contrast(1.08) brightness(.96); }
+    .page-bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 40%, transparent 55%, #081a12a6 100%); }
+    /* hero scenery silhouettes, bolder */
+    .sc-far { fill: #8fae84; opacity: .95; }
+    .sc-mid { fill: #38603c; opacity: .8; }
+    .sc-near { fill: #0e241b; opacity: .55; }
+    /* section backgrounds: deeper darks, warmer wash, more photo in the hero */
+    .hero { background: linear-gradient(180deg, color-mix(in srgb, var(--parchment) 84%, transparent), color-mix(in srgb, var(--cream) 78%, transparent)); border-bottom: 2px solid var(--line); }
+    .wash { background: color-mix(in srgb, #f0e2c4 92%, transparent); border-block: 2px solid var(--line); }
+    .studio { background: color-mix(in srgb, var(--pine-950) 96%, transparent); }
+    .proof { background: color-mix(in srgb, var(--pine-900) 95%, transparent); }
+    .contact { background: color-mix(in srgb, var(--pine-900) 96%, transparent); }
+    /* bolder ink for headings on the light sections */
+    .hero h1, .section:not(.studio):not(.contact) h2 { color: var(--pine-950); }
+    /* edges: 2px frames and deeper shadows on every card-like surface */
+    .stage { border: 2px solid var(--pine-700); }
+    .service, .shot, .craft-photo { border-width: 2px; }
+    .price-table { border-width: 2px; border-top: 3px dashed var(--copper); }
+    .estimate { border: 2px solid #ffffff38; }
+    .contact-panel { border: 2px solid #ffffff30; }
+    .shot { box-shadow: 0 14px 34px #14342a1f; }
+    .service:hover { box-shadow: 0 18px 36px #14342a2e; }
+    .chip { border: 1.5px solid #c9ae7e; }
+    .site-header { border-bottom: 2px solid var(--line); }
+    .site-header::before { height: 5px; }
+    .site-footer { border-top: 2px solid #ffffff24; }
+    .ba-handle { width: 4px; }
+    .ba-grip { border: 2px solid #fff; }
+    .button-primary { background: linear-gradient(160deg, #c96f1e, var(--copper) 55%, var(--copper-dark)); border: 2px solid var(--copper-dark); }
+    .button-ghost { border-width: 2px; }
+    .demo-bar { background: #f7dfae; border-bottom: 2px solid #d9a94f; }
   </style>
 </head>
 <body>
