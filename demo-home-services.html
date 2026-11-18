@@ -8,7 +8,8 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%231e4634'/%3E%3Cpath d='M4.6 11.2 12 4.9l7.4 6.3' stroke='%23d99a5b' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M7 10v9h10v-9' stroke='%23f7efdd' stroke-width='1.7' fill='none'/%3E%3Crect x='10.5' y='14.6' width='3' height='4.4' fill='%23d99a5b'/%3E%3C/svg%3E">
   <meta name="description" content="Concept demo by B&C Web Services: an interactive website direction for a fictional Seattle home-repair business, with interactive photo tools and AI-generated illustrations. Not a real business or client.">
   <title>Cascade Home Repair — Concept Demo by B&amp;C Web Services</title>
-  <link rel="preload" as="image" href="cascade-assets/cascade-exterior-800.webp" media="(max-width: 700px)">
+  <link rel="preload" as="image" href="cascade-assets/cascade-exterior-640.webp" media="(max-width: 480px)">
+  <link rel="preload" as="image" href="cascade-assets/cascade-exterior-800.webp" media="(min-width: 481px) and (max-width: 700px)">
   <link rel="preload" as="image" href="cascade-assets/cascade-exterior.webp" media="(min-width: 701px)">
   <style>
     /* Cascade v2 — warm Pacific-Northwest craftsman identity, deliberately
@@ -496,7 +497,8 @@
     .marker { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
     .site-nav > a { padding-inline: 8px; }
   
-    /* V28 — mobile LCP: hero house preloaded + fetchpriority + 800w phone variant; lighter page-bg forest (PageSpeed mobile LCP was 5.1s)
+    /* V29 — redesign: before/after slider, gallery filters, ballpark estimator, 640w hero variant (2026-11-18)
+   V28 — mobile LCP: hero house preloaded + fetchpriority + 800w phone variant; lighter page-bg forest (PageSpeed mobile LCP was 5.1s)
    V27 — hero contrast over the forest photo (round-2 gate blocker: blurb 4.31:1, accent 2.96:1) */
     @media screen {
       .hero { background: linear-gradient(180deg, color-mix(in srgb, var(--parchment) 92%, transparent), color-mix(in srgb, var(--cream) 88%, transparent)); }
@@ -505,6 +507,34 @@
     }
     /* V27 — phones: the fixed call bar is the one call action (round-2 gate: duplicated tel, covered hero button at 320px) */
     @media (max-width: 560px) { .hero-actions .button-primary { display: none; } }
+  
+    /* V29 — before/after slider, gallery filters, ballpark estimator */
+    .cmp-section .kicker { color: var(--copper-dark); font-weight: 700; letter-spacing: .13em; text-transform: uppercase; font-size: 13.5px; margin: 0 0 8px; }
+    .cmp-copy { font-size: 17.5px; line-height: 1.6; max-width: 58ch; }
+    .cmp { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 3; max-width: 880px; box-shadow: 0 18px 44px rgba(46, 30, 16, .28); touch-action: none; }
+    .cmp img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .cmp .cmp-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+    .cmp-tag { position: absolute; top: 14px; z-index: 3; background: rgba(32, 21, 12, .78); color: #FFF6E8; font-size: 13.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px; }
+    .cmp-tag-before { left: 14px; } .cmp-tag-after { right: 14px; }
+    .cmp-handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px; background: #FFF6E8; z-index: 2; box-shadow: 0 0 0 1px rgba(32, 21, 12, .25); }
+    .cmp-grip { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: var(--copper-dark); color: #FFF6E8; display: flex; align-items: center; justify-content: center; font-size: 21px; font-weight: 700; box-shadow: 0 6px 18px rgba(32, 21, 12, .4); }
+    .cmp-label { display: block; margin-top: 16px; font-weight: 650; font-size: 16px; }
+    .cmp-range { display: block; box-sizing: border-box; width: 100%; max-width: 880px; height: 44px; margin: 0; accent-color: var(--copper-dark); cursor: pointer; }
+    .work-filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 22px; }
+    .wchip { min-height: 44px; padding: 10px 18px; border-radius: 999px; border: 1.5px solid #B49B78; background: #FFFDF8; color: #3A2A1E; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer; }
+    .wchip[aria-pressed="true"] { background: var(--copper-dark); border-color: var(--copper-dark); color: #FFF6E8; }
+    .wchip:focus-visible, .cmp-range:focus-visible { outline: 3px solid rgba(124, 63, 14, .5); outline-offset: 2px; }
+    figure[data-type][hidden] { display: none !important; }
+    .estimator { margin-top: 34px; background: #FFFDF8; border: 1px solid #D9C6A5; border-radius: 16px; padding: clamp(20px, 3.5vw, 32px); }
+    .estimator-title { margin: 0 0 6px; font-size: 23px; }
+    .estimator-copy { margin: 0 0 18px; font-size: 16.5px; }
+    .estimator-row { display: flex; flex-wrap: wrap; gap: 16px 22px; align-items: end; }
+    .estimator-field { display: flex; flex-direction: column; gap: 7px; font-weight: 650; font-size: 15.5px; flex: 1 1 240px; }
+    .estimator-qty { flex: 0 1 130px; }
+    .estimator-field select, .estimator-field input { min-height: 48px; font: inherit; font-size: 16.5px; padding: 8px 12px; border: 1.5px solid #B49B78; border-radius: 10px; background: #fff; color: #3A2A1E; }
+    .estimator-out { font-size: 19px; margin: 0; padding-bottom: 10px; }
+    .estimator-out strong { color: var(--copper-dark); }
+    .estimator-note { font-size: 14.5px; margin: 16px 0 0; }
   </style>
 </head>
 <body>
@@ -543,7 +573,7 @@
         <div>
           <div class="stage" id="house-stage">
             <span class="stage-tag">AI PHOTOS · DRAG TO SPIN</span>
-            <div class="photo-focus" id="house-focus"><img class="scene-fallback" id="house-fallback" fetchpriority="high" src="cascade-assets/cascade-exterior.webp" srcset="cascade-assets/cascade-exterior-800.webp 800w, cascade-assets/cascade-exterior.webp 1200w" sizes="(max-width: 700px) 92vw, 560px" alt="AI-generated illustration of a green Seattle craftsman house with a new cedar porch, the kind of home Cascade works on." width="1200" height="800">
+            <div class="photo-focus" id="house-focus"><img class="scene-fallback" id="house-fallback" fetchpriority="high" src="cascade-assets/cascade-exterior.webp" srcset="cascade-assets/cascade-exterior-640.webp 640w, cascade-assets/cascade-exterior-800.webp 800w, cascade-assets/cascade-exterior.webp 1200w" sizes="(max-width: 700px) 92vw, 560px" alt="AI-generated illustration of a green Seattle craftsman house with a new cedar porch, the kind of home Cascade works on." width="1200" height="800">
             <img class="spin-frame" data-src="cascade-assets/cascade-spin-045.webp" alt="" aria-hidden="true" draggable="false">
             <img class="spin-frame" data-src="cascade-assets/cascade-spin-090.webp" alt="" aria-hidden="true" draggable="false">
             <img class="spin-frame" data-src="cascade-assets/cascade-spin-135.webp" alt="" aria-hidden="true" draggable="false">
@@ -641,10 +671,16 @@
       <div class="wrap">
         <div class="section-head rv"><p class="eyebrow">Recent work</p><h2 id="gallery-heading">The kind of list we finish.</h2><p>Kitchens, baths, doors, and porches — the small jobs that make a house feel kept.</p></div>
         <div class="gallery">
-          <figure class="shot rv"><img src="cascade-assets/cascade-kitchen.webp" alt="AI-generated illustration of a renovated kitchen with evergreen cabinets and copper fixtures." loading="lazy" width="1024" height="1024"><figcaption><b>Kitchen refresh — Ballard</b>Cabinet fronts, copper hardware, tile, and light. Five days, one crew.</figcaption></figure>
-          <figure class="shot rv"><img src="cascade-assets/cascade-bath.webp" alt="AI-generated illustration of a renovated bathroom with sage tiles and a cream vanity." loading="lazy" width="1024" height="1024"><figcaption><b>Bath retile — Fremont</b>Sage subway tile, regrout, reseal, new vanity and copper fixtures.</figcaption></figure>
-          <figure class="shot rv"><img src="cascade-assets/cascade-door.webp" alt="AI-generated illustration of a craftsperson levelling a new oak door during installation." loading="lazy" width="1024" height="1024"><figcaption><b>Door, hung true — Greenwood</b>Oak door planed, rehung, and levelled. One-finger close, even gap.</figcaption></figure>
-          <figure class="shot rv"><img src="cascade-assets/cascade-exterior.webp" alt="AI-generated illustration of a green craftsman house with a new cedar porch." loading="lazy" width="1024" height="1024"><figcaption><b>Porch rebuild — Queen Anne</b>Cedar deck and rails replaced, porch light refitted, trim repainted.</figcaption></figure>
+          <div class="work-filters" role="group" aria-label="Filter projects by type">
+          <button type="button" class="wchip" data-filter="all" aria-pressed="true">All work</button>
+          <button type="button" class="wchip" data-filter="kitchen" aria-pressed="false">Kitchens</button>
+          <button type="button" class="wchip" data-filter="bath" aria-pressed="false">Baths</button>
+          <button type="button" class="wchip" data-filter="outdoor" aria-pressed="false">Outdoor &amp; doors</button>
+        </div>
+        <figure class="shot rv" data-type="kitchen"><img src="cascade-assets/cascade-kitchen.webp" alt="AI-generated illustration of a renovated kitchen with evergreen cabinets and copper fixtures." loading="lazy" width="1024" height="1024"><figcaption><b>Kitchen refresh — Ballard</b>Cabinet fronts, copper hardware, tile, and light. Five days, one crew.</figcaption></figure>
+          <figure class="shot rv" data-type="bath"><img src="cascade-assets/cascade-bath.webp" alt="AI-generated illustration of a renovated bathroom with sage tiles and a cream vanity." loading="lazy" width="1024" height="1024"><figcaption><b>Bath retile — Fremont</b>Sage subway tile, regrout, reseal, new vanity and copper fixtures.</figcaption></figure>
+          <figure class="shot rv" data-type="outdoor"><img src="cascade-assets/cascade-door.webp" alt="AI-generated illustration of a craftsperson levelling a new oak door during installation." loading="lazy" width="1024" height="1024"><figcaption><b>Door, hung true — Greenwood</b>Oak door planed, rehung, and levelled. One-finger close, even gap.</figcaption></figure>
+          <figure class="shot rv" data-type="outdoor"><img src="cascade-assets/cascade-exterior.webp" alt="AI-generated illustration of a green craftsman house with a new cedar porch." loading="lazy" width="1024" height="1024"><figcaption><b>Porch rebuild — Queen Anne</b>Cedar deck and rails replaced, porch light refitted, trim repainted.</figcaption></figure>
         </div>
         <p class="ai-note"><b>AI-generated illustrations</b> for this concept demo — a live Cascade site would show the crew&rsquo;s real, permissioned project photos here.</p>
       </div>
@@ -652,13 +688,29 @@
     <section class="section wash" aria-labelledby="process-heading">
       <div class="wrap">
         <div class="section-head rv"><p class="eyebrow">How it works</p><h2 id="process-heading">No runaround. Three steps.</h2></div>
-        <figure class="craft-photo rv"><img src="cascade-assets/cascade-craftsman.webp" alt="AI-generated photo of a craftsperson planing a cedar board in a warm workshop, wood shavings curling off the plane." loading="lazy" width="1440" height="960"><figcaption><b>AI-generated photo</b> for this concept demo — a live site would show the crew&rsquo;s real hands at work.</figcaption></figure>
+        <figure class="craft-photo rv" data-type="outdoor"><img src="cascade-assets/cascade-craftsman.webp" alt="AI-generated photo of a craftsperson planing a cedar board in a warm workshop, wood shavings curling off the plane." loading="lazy" width="1440" height="960"><figcaption><b>AI-generated photo</b> for this concept demo — a live site would show the crew&rsquo;s real hands at work.</figcaption></figure>
         
         <div class="steps">
           <article class="step rv"><p class="eyebrow">01 / Call</p><h3>Describe the list.</h3><p>Call or send photos of what&rsquo;s broken. Most small jobs are quoted from photos the same day.</p></article>
           <article class="step rv"><p class="eyebrow">02 / Quote</p><h3>Approve a fixed price.</h3><p>You get an itemised quote before anyone picks up a tool. The price you approve is the price you pay.</p></article>
           <article class="step rv"><p class="eyebrow">03 / Done</p><h3>Fixed, cleaned, warranted.</h3><p>We do the work, haul our mess, and walk the job with you. Every fix is warranted for 12 months.</p></article>
         </div>
+      </div>
+    </section>
+    <section class="section cmp-section" aria-labelledby="ba-heading">
+      <div class="container">
+        <p class="kicker">Before &amp; after</p>
+        <h2 id="ba-heading">See the difference a week makes</h2>
+        <p class="cmp-copy">The Ballard kitchen, before we started and after the refresh — same room, same window light. Drag the handle.</p>
+        <div class="cmp" id="cmp" style="--pos: 50%">
+          <img class="cmp-after" src="cascade-assets/cascade-kitchen.webp" alt="AI-generated photo: the Ballard kitchen after its refresh — warm oak cabinets and new counters." loading="lazy" width="1024" height="1024">
+          <img class="cmp-before" src="cascade-assets/cascade-kitchen-before.webp" alt="AI-generated photo: the Ballard kitchen before work began — dated cabinets and worn counters." loading="lazy" width="1024" height="1024">
+          <span class="cmp-tag cmp-tag-before">Before</span>
+          <span class="cmp-tag cmp-tag-after">After</span>
+          <span class="cmp-handle" aria-hidden="true"><span class="cmp-grip">&#8249; &#8250;</span></span>
+        </div>
+        <label class="cmp-label" for="cmp-range">Slide to compare before and after</label>
+        <input class="cmp-range" type="range" id="cmp-range" min="0" max="100" value="50">
       </div>
     </section>
     <section class="section" id="pricing" aria-labelledby="pricing-heading">
@@ -673,7 +725,28 @@
         </div>
         <p class="price-note">Sample prices for this concept demo. A real Cascade quote confirms scope, parts, and access before fixing the total.</p>
       </div>
-    </section>
+    
+        <div class="estimator">
+          <h3 class="estimator-title">Ballpark it yourself</h3>
+          <p class="estimator-copy">Pick a job and how many — the range updates from the sample prices above.</p>
+          <div class="estimator-row">
+            <label class="estimator-field">Job
+              <select id="est-job">
+                <option value="180,240">Drywall patch (up to 12 in)</option>
+                <option value="165,210">Faucet replacement</option>
+                <option value="130,175">Door rehang &amp; hardware</option>
+                <option value="190,240">Toilet rebuild</option>
+                <option value="340,340">Half-day handyman block (4 hrs)</option>
+              </select>
+            </label>
+            <label class="estimator-field estimator-qty">How many
+              <input type="number" id="est-qty" min="1" max="10" value="1" inputmode="numeric">
+            </label>
+            <p class="estimator-out">Sample total: <strong id="est-out">$180–$240</strong></p>
+          </div>
+          <p class="estimator-note">Sample prices for this concept demo. A real Cascade quote is fixed and itemised before work begins.</p>
+        </div>
+      </section>
     <section class="section wash" aria-labelledby="area-heading">
       <div class="wrap split">
         <div id="area">
@@ -1135,5 +1208,52 @@ window.addEventListener('load', function () {
   }, 400);
 });
 </script>
+
+  <script>
+  /* V29 — before/after slider, gallery filters, ballpark estimator. */
+  (function () {
+    var ba = document.getElementById('cmp');
+    var range = document.getElementById('cmp-range');
+    if (ba && range) {
+      var setPos = function (v) { ba.style.setProperty('--pos', v + '%'); };
+      range.addEventListener('input', function () { setPos(range.value); });
+      var drag = function (e) {
+        var r = ba.getBoundingClientRect();
+        var v = Math.round(((e.clientX - r.left) / r.width) * 100);
+        v = Math.max(0, Math.min(100, v));
+        range.value = v; setPos(v);
+      };
+      ba.addEventListener('pointerdown', function (e) { drag(e); ba.setPointerCapture(e.pointerId); ba.addEventListener('pointermove', drag); });
+      ba.addEventListener('pointerup', function () { ba.removeEventListener('pointermove', drag); });
+    }
+    var chips = document.querySelectorAll('.wchip');
+    if (chips.length) {
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+          chip.setAttribute('aria-pressed', 'true');
+          var f = chip.getAttribute('data-filter');
+          document.querySelectorAll('figure[data-type]').forEach(function (fig) {
+            fig.hidden = !(f === 'all' || fig.getAttribute('data-type') === f);
+          });
+        });
+      });
+    }
+    var job = document.getElementById('est-job');
+    var qty = document.getElementById('est-qty');
+    var out = document.getElementById('est-out');
+    if (job && qty && out) {
+      var money = function (n) { return '$' + n.toLocaleString('en-US'); };
+      var calc = function () {
+        var parts = job.value.split(',');
+        var lo = +parts[0], hi = +parts[1], q = Math.max(1, Math.min(10, +qty.value || 1));
+        out.textContent = lo === hi ? money(lo * q) + ' flat' : money(lo * q) + '–' + money(hi * q);
+      };
+      job.addEventListener('change', calc);
+      qty.addEventListener('input', calc);
+      calc();
+    }
+  })();
+  </script>
 </body>
 </html>
