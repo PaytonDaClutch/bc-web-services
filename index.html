@@ -901,7 +901,12 @@
     @keyframes ripple-out { from { transform: scale(1); opacity: .75; } to { transform: scale(6); opacity: 0; } }
     @media (pointer: coarse) { .cursor-follower { display: none; } }
     @media print { .cursor-follower, .click-ripple { display: none !important; } }
-  </style>
+  
+    /* V47 — ridgeline photo at the hero's base, under the particle field. */
+    .hero-ridges { position: absolute; left: 0; bottom: 0; z-index: 0; width: 100%; height: 56%; object-fit: cover; object-position: 50% 100%; pointer-events: none; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 46%); mask-image: linear-gradient(180deg, transparent 0, #000 46%); }
+    .hero-grid { z-index: 1; }
+    @media print { .hero-ridges { display: none; } }
+</style>
 </head>
 <body>
 
@@ -937,6 +942,7 @@
   </header>
   <main id="main" tabindex="-1">
 <section class="hero dark stage-blueprint" id="top" aria-labelledby="hero-heading">
+      <img class="hero-ridges" src="hero-ridges.webp" alt="" aria-hidden="true" width="1600" height="1066">
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">Independent founders. Local-business focus.</p>
