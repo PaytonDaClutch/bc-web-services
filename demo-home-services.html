@@ -243,7 +243,7 @@
       .demo-bar, .site-header, .mobile-cta, .stage, .ba input { display: none; }
       .hero, .proof, .contact, .studio { background: #fff; color: var(--bark); }
     }
-    /* V8 — full-page forest backdrop (AI photo), sections translucent. */
+    /* V8 — full-page forest backdrop, sections translucent. */
     .page-bg { position: fixed; inset: -4%; z-index: -1; background: url("cascade-assets/cascade-forest-bg.webp") center / cover no-repeat; filter: blur(1.2px) saturate(.85) brightness(1.05); transform: scale(1.08); will-change: transform; }
     .page-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #fbf5ea59, #fbf5ea40 45%, #fbf5ea2e 75%, #14342a38); }
     .hero { background: linear-gradient(180deg, color-mix(in srgb, var(--parchment) 84%, transparent), color-mix(in srgb, var(--cream) 74%, transparent)); }
@@ -603,7 +603,7 @@
         </div>
         <div>
           <div class="stage" id="house-stage">
-            <span class="stage-tag">AI PHOTOS · DRAG TO SPIN</span>
+            <span class="stage-tag">PHOTOS · DRAG TO SPIN</span>
             <div class="photo-focus" id="house-focus"><img class="scene-fallback" id="house-fallback" fetchpriority="low" src="cascade-assets/cascade-exterior.webp" srcset="cascade-assets/cascade-exterior-640.webp 640w, cascade-assets/cascade-exterior-800.webp 800w, cascade-assets/cascade-exterior.webp 1200w" sizes="(max-width: 700px) 92vw, 560px" alt="A green Seattle craftsman house with a new cedar porch, the kind of home Cascade works on." width="1200" height="800">
             <img class="spin-frame" data-src="cascade-assets/cascade-spin-045.webp" alt="" aria-hidden="true" draggable="false">
             <img class="spin-frame" data-src="cascade-assets/cascade-spin-090.webp" alt="" aria-hidden="true" draggable="false">
@@ -666,7 +666,7 @@
         <div class="section-head rv"><p class="eyebrow">Remodel studio</p><h2 id="studio-heading">Design the kitchen refresh.</h2><p>Swap the finishes and watch a sample estimate build itself — no showroom trip, no swatch book.</p></div>
         <div class="studio-grid">
           <div class="stage" id="room-stage">
-            <span class="stage-tag">AI PHOTO · PICK A CABINET FINISH</span>
+            <span class="stage-tag">PHOTO · PICK A CABINET FINISH</span>
             <img class="scene-fallback room-photo is-on" id="room-photo-a" src="cascade-assets/cascade-kitchen.webp" alt="A renovated craftsman kitchen; the cabinet finish changes as finishes are picked below." width="1280" height="853">
             <img class="scene-fallback room-photo" id="room-photo-b" data-src="cascade-assets/cascade-kitchen-cream.webp" alt="" aria-hidden="true" width="1280" height="853">
           </div>
@@ -959,7 +959,7 @@
        and the old scene helpers remain as unused declarations. */
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* ================= Hero: the Cascade house (AI photo) ================= */
+    /* ================= Hero: the Cascade house ================= */
     try {
       var hStage = document.getElementById('house-stage');
       var hImg = document.getElementById('house-fallback');
