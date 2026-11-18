@@ -432,6 +432,11 @@
     .site-footer { overflow: hidden; }
     .footer-giant { font-family: var(--serif); font-weight: 700; font-size: clamp(84px, 13.5vw, 178px); line-height: .78; letter-spacing: -.01em; color: #14342a12; margin-top: 24px; transform: translateY(16%); white-space: nowrap; }
     @media print { .footer-giant { display: none; } }
+  
+    /* V20 — hero backdrop is a real photo now: misty ridgelines, faded into
+       the parchment at the top (behind the headline) and at the bottom
+       (behind the trust row). The flat SVG layers are gone. */
+    .hero-forest { position: absolute; left: 0; bottom: 0; width: 100%; height: 82%; object-fit: cover; object-position: 50% 100%; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 36%, #000 84%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0, #000 36%, #000 84%, transparent 100%); }
   </style>
 </head>
 <body>
@@ -454,13 +459,7 @@
   </header>
   <main id="main" tabindex="-1">
     <section class="hero" id="top" aria-labelledby="hero-heading">
-      <div class="scenery" aria-hidden="true">
-        <svg class="sc-layer sc-far" viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax slice"><path d="M0,392 L170,306 L350,358 L540,272 L760,346 L960,256 L1140,334 L1300,290 L1440,342 L1440,620 L0,620 Z"/></svg>
-        <svg class="sc-layer sc-mid" viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax slice"><path d="M0,462 L140,410 L300,448 L470,398 L660,452 L840,404 L1030,454 L1210,412 L1360,448 L1440,426 L1440,620 L0,620 Z"/></svg>
-        <svg class="sc-layer sc-near" viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax slice"><g><path d="M-10,620 L17,470 L44,620 Z"/><path d="M52,620 L79,415 L106,620 Z"/><path d="M114,620 L141,452 L168,620 Z"/><path d="M176,620 L203,388 L230,620 Z"/><path d="M238,620 L265,442 L292,620 Z"/><path d="M300,620 L327,406 L354,620 Z"/><path d="M362,620 L389,462 L416,620 Z"/><path d="M424,620 L451,380 L478,620 Z"/><path d="M486,620 L513,434 L540,620 Z"/><path d="M548,620 L575,412 L602,620 Z"/><path d="M610,620 L637,456 L664,620 Z"/><path d="M672,620 L699,394 L726,620 Z"/><path d="M734,620 L761,444 L788,620 Z"/><path d="M796,620 L823,422 L850,620 Z"/><path d="M858,620 L885,468 L912,620 Z"/><path d="M920,620 L947,402 L974,620 Z"/><path d="M982,620 L1009,432 L1036,620 Z"/><path d="M1044,620 L1071,414 L1098,620 Z"/></g></svg>
-        <span class="mist m1"></span><span class="mist m2"></span>
-        
-      </div>
+      <div class="scenery" aria-hidden="true"><img class="hero-forest" src="cascade-assets/cascade-hero-forest.webp" alt="" width="1600" height="1066"></div>
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">Home repair · Seattle &amp; the Eastside</p>
