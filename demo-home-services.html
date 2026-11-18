@@ -8,9 +8,8 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%231e4634'/%3E%3Cpath d='M4.6 11.2 12 4.9l7.4 6.3' stroke='%23d99a5b' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M7 10v9h10v-9' stroke='%23f7efdd' stroke-width='1.7' fill='none'/%3E%3Crect x='10.5' y='14.6' width='3' height='4.4' fill='%23d99a5b'/%3E%3C/svg%3E">
   <meta name="description" content="Concept demo by B&C Web Services: an interactive website direction for a fictional Seattle home-repair business, with interactive photo tools and AI-generated illustrations. Not a real business or client.">
   <title>Cascade Home Repair — Concept Demo by B&amp;C Web Services</title>
-  <link rel="preload" as="image" href="cascade-assets/cascade-exterior-640.webp" media="(max-width: 480px)">
-  <link rel="preload" as="image" href="cascade-assets/cascade-exterior-800.webp" media="(min-width: 481px) and (max-width: 700px)">
-  <link rel="preload" as="image" href="cascade-assets/cascade-exterior.webp" media="(min-width: 701px)">
+  <link rel="preload" as="image" href="cascade-assets/cascade-hero-forest-800.webp" media="(max-width: 700px)">
+  <link rel="preload" as="image" href="cascade-assets/cascade-hero-forest.webp" media="(min-width: 701px)">
   <style>
     /* Cascade v2 — warm Pacific-Northwest craftsman identity, deliberately
        unlike B&C's blue/ink: deep evergreen + cream + copper, serif display.
@@ -497,7 +496,8 @@
     .marker { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
     .site-nav > a { padding-inline: 8px; }
   
-    /* V30 — reviews wall + booking flow (2026-11-18)
+    /* V31 — LCP fix 3: PageSpeed named the hero FOREST (not the house) as the LCP element; it now has an 800w mobile variant + the preloads, and the house fallback drops to low priority so it stops racing it (2026-11-18)
+   V30 — reviews wall + booking flow (2026-11-18)
    V29 — redesign: before/after slider, gallery filters, ballpark estimator, 640w hero variant (2026-11-18)
    V28 — mobile LCP: hero house preloaded + fetchpriority + 800w phone variant; lighter page-bg forest (PageSpeed mobile LCP was 5.1s)
    V27 — hero contrast over the forest photo (round-2 gate blocker: blurb 4.31:1, accent 2.96:1) */
@@ -575,7 +575,7 @@
   </header>
   <main id="main" tabindex="-1">
     <section class="hero" id="top" aria-labelledby="hero-heading">
-      <div class="scenery" aria-hidden="true"><img class="hero-forest" fetchpriority="high" src="cascade-assets/cascade-hero-forest.webp" alt="" width="1600" height="1066"></div>
+      <div class="scenery" aria-hidden="true"><img class="hero-forest" fetchpriority="high" src="cascade-assets/cascade-hero-forest.webp" srcset="cascade-assets/cascade-hero-forest-800.webp 800w, cascade-assets/cascade-hero-forest.webp 1600w" sizes="100vw" alt="" width="1600" height="1066"></div>
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">Home repair · Seattle &amp; the Eastside</p>
@@ -591,7 +591,7 @@
         <div>
           <div class="stage" id="house-stage">
             <span class="stage-tag">AI PHOTOS · DRAG TO SPIN</span>
-            <div class="photo-focus" id="house-focus"><img class="scene-fallback" id="house-fallback" fetchpriority="high" src="cascade-assets/cascade-exterior.webp" srcset="cascade-assets/cascade-exterior-640.webp 640w, cascade-assets/cascade-exterior-800.webp 800w, cascade-assets/cascade-exterior.webp 1200w" sizes="(max-width: 700px) 92vw, 560px" alt="AI-generated illustration of a green Seattle craftsman house with a new cedar porch, the kind of home Cascade works on." width="1200" height="800">
+            <div class="photo-focus" id="house-focus"><img class="scene-fallback" id="house-fallback" fetchpriority="low" src="cascade-assets/cascade-exterior.webp" srcset="cascade-assets/cascade-exterior-640.webp 640w, cascade-assets/cascade-exterior-800.webp 800w, cascade-assets/cascade-exterior.webp 1200w" sizes="(max-width: 700px) 92vw, 560px" alt="AI-generated illustration of a green Seattle craftsman house with a new cedar porch, the kind of home Cascade works on." width="1200" height="800">
             <img class="spin-frame" data-src="cascade-assets/cascade-spin-045.webp" alt="" aria-hidden="true" draggable="false">
             <img class="spin-frame" data-src="cascade-assets/cascade-spin-090.webp" alt="" aria-hidden="true" draggable="false">
             <img class="spin-frame" data-src="cascade-assets/cascade-spin-135.webp" alt="" aria-hidden="true" draggable="false">
