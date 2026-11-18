@@ -906,7 +906,14 @@
     .hero-ridges { position: absolute; left: 0; bottom: 0; z-index: 0; width: 100%; height: 56%; object-fit: cover; object-position: 50% 100%; pointer-events: none; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 46%); mask-image: linear-gradient(180deg, transparent 0, #000 46%); }
     .hero-grid { z-index: 1; }
     @media print { .hero-ridges { display: none; } }
-</style>
+
+    /* V48 — phones: sticky can fail on mobile browsers with the page's
+       overflow guard, so the header is fixed on phones and stays put. */
+    @media (max-width: 800px) {
+      .site-header { position: fixed; top: 0; left: 0; right: 0; }
+      body { padding-top: 65px; }
+    }
+  </style>
 </head>
 <body>
 

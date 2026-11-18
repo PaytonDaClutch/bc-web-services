@@ -901,6 +901,13 @@
     @keyframes ripple-out { from { transform: scale(1); opacity: .75; } to { transform: scale(6); opacity: 0; } }
     @media (pointer: coarse) { .cursor-follower { display: none; } }
     @media print { .cursor-follower, .click-ripple { display: none !important; } }
+  
+    /* V48 — phones: sticky can fail on mobile browsers with the page's
+       overflow guard, so the header is fixed on phones and stays put. */
+    @media (max-width: 800px) {
+      .site-header { position: fixed; top: 0; left: 0; right: 0; }
+      body { padding-top: 65px; }
+    }
   </style>
 </head>
 <body>

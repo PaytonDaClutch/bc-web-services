@@ -447,6 +447,14 @@
     /* V22 — readability: text never sits raw on the forest photo. The plain
        sections get the same parchment veil as the hero. */
     .section:not(.wash):not(.studio):not(.contact) { background: color-mix(in srgb, var(--parchment) 88%, transparent); }
+  
+    /* V23 — phones/tablets: fixed header (sticky can fail with the
+       overflow guard); anchors padded so tops clear the header. */
+    @media (max-width: 900px) {
+      .site-header { position: fixed; top: 0; left: 0; right: 0; }
+      body { padding-top: 83px; }
+      html { scroll-padding-top: 92px; }
+    }
   </style>
 </head>
 <body>
