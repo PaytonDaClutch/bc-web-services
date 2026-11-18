@@ -6,6 +6,9 @@
   <meta name="theme-color" content="#14342a">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%231e4634'/%3E%3Cpath d='M4.6 11.2 12 4.9l7.4 6.3' stroke='%23d99a5b' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M7 10v9h10v-9' stroke='%23f7efdd' stroke-width='1.7' fill='none'/%3E%3Crect x='10.5' y='14.6' width='3' height='4.4' fill='%23d99a5b'/%3E%3C/svg%3E">
+  <meta property="og:title" content="Cascade Home Repair — Concept Demo by B&C Web Services">
+  <meta property="og:description" content="A concept website demo for a fictional Seattle home-repair company: services, sample prices, reviews and booking — built by B&C Web Services.">
+  <meta property="og:type" content="website">
   <meta name="description" content="Concept demo by B&C Web Services: an interactive website direction for a fictional Seattle home-repair business, with interactive photo tools and AI-generated illustrations. Not a real business or client.">
   <title>Cascade Home Repair — Concept Demo by B&amp;C Web Services</title>
   <link rel="preload" as="image" href="cascade-assets/cascade-hero-forest-800.webp" media="(max-width: 700px)">
@@ -553,6 +556,17 @@
     .booking-submit { grid-column: 1 / -1; min-height: 52px; font-size: 17.5px; font-weight: 700; border: 0; border-radius: 12px; cursor: pointer; }
     .booking-done { margin-top: 20px; background: #FFFDF8; border: 1px solid #D9C6A5; border-radius: 16px; padding: 24px; max-width: 880px; }
     .booking-done h3 { margin-top: 0; }
+
+    /* V33 (gate round 3): hero blurb panel, small-phone call bar, V30 text sizes, kicker weight, focus rings */
+    .hotspot-blurb { background: rgba(244, 235, 217, .94); border: 1px solid #D9C6A5; border-radius: 12px; padding: 12px 14px; color: #3E3222; }
+    .stage-tag { box-shadow: 0 2px 10px rgba(14, 36, 27, .35); }
+    .review p { font-size: 17.5px; }
+    .estimator-copy { font-size: 17.5px; }
+    .kicker { font: 700 13.5px/1.6 var(--mono); letter-spacing: .13em; text-transform: uppercase; color: var(--copper-dark); margin: 0 0 8px; }
+    .sample-note { margin: 0 0 18px; }
+    .booking-form input:focus-visible, .booking-form select:focus-visible { outline: 3px solid var(--copper-dark); outline-offset: 2px; }
+    .estimator-field input:focus-visible + span, .booking-windows input:focus-visible + span { outline: 3px solid var(--copper-dark); outline-offset: 2px; }
+    @media (max-width: 380px) { .mobile-cta { white-space: nowrap; } .mobile-cta .cta-num { display: none; } }
   </style>
 </head>
 <body>
@@ -719,12 +733,12 @@
       <div class="container">
         <p class="kicker">Reviews</p>
         <h2 id="reviews-heading">Neighbors who&rsquo;d hire us again</h2>
+        <p class="sample-note">Sample reviews for this concept demo.</p>
         <div class="review-grid">
           <blockquote class="review"><p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p><p>&ldquo;The kitchen refresh finished when they said it would, and the quote never moved. First contractor we&rsquo;ve had who texts back the same day.&rdquo;</p><footer>Dana W. — Ballard · Kitchen refresh</footer></blockquote>
           <blockquote class="review"><p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p><p>&ldquo;They rehung three doors and fixed the bathroom tile in one visit. Fair price, tidy work, no upsell speech at the door.&rdquo;</p><footer>Marcus T. — Fremont · Doors &amp; bath</footer></blockquote>
           <blockquote class="review"><p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p><p>&ldquo;Our porch went from scary to the best seat in the house. The crew treated the garden like it was theirs.&rdquo;</p><footer>Priya S. — Queen Anne · Porch rebuild</footer></blockquote>
         </div>
-        <p class="sample-note">Sample reviews for this concept demo.</p>
       </div>
     </section>
     <section class="section cmp-section" aria-labelledby="cmp-heading">
@@ -852,7 +866,7 @@
     </section>
   </main>
   <footer class="site-footer"><div class="wrap footer-inner"><p>© 2026 Cascade Home Repair — fictional business, shown as a design concept.</p><p>Concept demo by <a href="index.html">B&amp;C Web Services</a> · Blosch &amp; Cero</p></div><div class="wrap footer-giant" aria-hidden="true">CASCADE</div></footer>
-  <nav aria-label="Mobile contact"><a class="button button-primary mobile-cta" href="tel:+18000000000">Call Cascade — 1 (800) 000-0000</a></nav>
+  <nav aria-label="Mobile contact"><a class="button button-primary mobile-cta" href="tel:+18000000000">Call Cascade<span class="cta-num"> — 1 (800) 000-0000</span></a></nav>
   <script>
   (function () {
     'use strict';
