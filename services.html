@@ -12,6 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="B&C Web Services">
   <meta property="og:title" content="B&C Web Services — Websites for local businesses">
+  <link rel="canonical" href="https://www.bcwebsservices.com/services.html">
   <meta property="og:description" content="Blosch & Cero. Custom business websites, digital business cards, and a clear next step online.">
   <meta property="og:image" content="social-preview.png">
   <meta property="og:image:width" content="1200">
@@ -933,6 +934,11 @@
   
     /* V56 — hero lead over the photo's mist band at desktop: brighter colour, hero-foot shadow, soft dark veil behind the block */
     .hero-copy { color: #DCE6F5; text-shadow: 0 1px 14px rgba(2, 8, 18, .72), 0 0 3px rgba(2, 8, 18, .6); background: radial-gradient(125% 135% at 32% 50%, rgba(5, 10, 22, .55), rgba(5, 10, 22, 0) 72%); }
+
+    /* V60 (gate round 3): Services targets guaranteed 44px in every state */
+    .beat-proof .text-link, .demo-point .text-link { min-height: 44px; }
+    .price-table th a { display: inline-flex; align-items: center; min-height: 44px; }
+    .site-nav .nav-cta { padding-left: 20px; padding-right: 20px; }
   </style>
 </head>
 <body>
@@ -955,7 +961,7 @@
   <main id="main" tabindex="-1">
 <section class="section" id="services" aria-labelledby="services-heading">
       <div class="wrap">
-        <div class="section-head" data-enter="block"><div class="section-title"><p class="eyebrow">What we build</p><h2 id="services-heading">The right starting point<br>for your business.</h2></div><p>What you offer, who you help, how to reach you — plainly.</p></div>
+        <div class="section-head" data-enter="block"><div class="section-title"><p class="eyebrow">What we build</p><h2 id="services-heading">The right starting point.</h2></div><p>What you offer, who you help, how to reach you — plainly.</p></div>
         <div class="explorer" id="explorer" data-enter="block">
           <div class="explorer-controls">
             <fieldset class="industry">
@@ -966,21 +972,21 @@
                 <label class="chip"><input class="sr-only" type="radio" name="industry" value="appointments"><span>Appointment-based</span></label>
                 <label class="chip"><input class="sr-only" type="radio" name="industry" value="professional"><span>Professional services</span></label>
               </div>
-              <p class="industry-note">Changes the “In practice” line — illustrations of the approach, not client results.</p>
+              <p class="industry-note">Illustrations of the approach, not client results.</p>
             </fieldset>
             <p class="sr-only" id="explorer-status" role="status"></p>
           </div>
           <div class="svc-panels">
             <article class="svc-panel is-active" id="service-websites" aria-labelledby="service-websites-title">
-              <p class="eyebrow">01 / Websites</p><h3 id="service-websites-title">Custom business websites</h3><div class="beat-problem"><p class="beat-label">Problem</p><p class="problem-text">If visitors can’t tell in seconds what you offer or how to reach you, they move on.</p></div><div class="beat-pair"><div><p class="beat-label">Fix</p><ul class="fix-list"><li><b>What you do and where you work</b> — stated on the first screen.</li><li><b>Phone-first layouts</b> — built for mobile, then widened for desktop.</li><li><b>A clear path to contact you</b> — email or call, on every screen.</li></ul></div><div class="beat-proof"><p class="beat-label">Proof</p><p>Checked across screen sizes and confirmed with you before anything goes public — this page included.</p></div></div><p class="demo-point" id="service-demos"><b>See a direction first:</b> review a one-page concept demo before a full build is agreed — judge the look before you commit. <a class="text-link" href="demo-home-services.html">Open the Cascade concept demo <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M5 11 11 5M6 5h5v5"/></svg></a></p><div class="practice"><p class="beat-label">In practice · Illustration</p><ul><li class="is-on" data-industry="home"><b>Home services:</b> the first screen says what you fix and where you work — like the Cascade demo.</li><li data-industry="food"><b>Food &amp; café:</b> hours, location, and menu first — ordering like a receipt, no surprises.</li><li data-industry="appointments"><b>Appointment-based:</b> the booking step sits on the first screen, beside services and hours.</li><li data-industry="professional"><b>Professional services:</b> calm, fast pages — who you help and how to reach you, up front.</li></ul></div>
+              <p class="eyebrow">01 / Websites</p><h3 id="service-websites-title">Custom business websites</h3><div class="beat-problem"><p class="beat-label">Problem</p><p class="problem-text">If visitors can’t tell in seconds what you offer, they leave.</p></div><div class="beat-pair"><div><p class="beat-label">Fix</p><ul class="fix-list"><li><b>What you do and where you work</b> — on the first screen.</li><li><b>Phone-first layouts</b> — mobile first, then desktop.</li><li><b>A clear path to contact you</b> — on every screen.</li></ul></div><div class="beat-proof"><p class="beat-label">Proof</p><p>Checked on every screen size, confirmed with you before anything goes public.</p></div></div><p class="demo-point" id="service-demos"><b>See a direction first:</b> a one-page concept demo before a full build — judge the look before you commit. <a class="text-link" href="demo-home-services.html">Open the Cascade concept demo <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M5 11 11 5M6 5h5v5"/></svg></a></p><div class="practice"><p class="beat-label">In practice · Illustration</p><ul><li class="is-on" data-industry="home"><b>Home services:</b> the first screen says what you fix and where you work — like the Cascade demo.</li><li data-industry="food"><b>Food &amp; café:</b> hours, location, and menu first — ordering like a receipt, no surprises.</li><li data-industry="appointments"><b>Appointment-based:</b> the booking step sits on the first screen, beside services and hours.</li><li data-industry="professional"><b>Professional services:</b> calm, fast pages — who you help and how to reach you, up front.</li></ul></div>
               <hr class="panel-divide">
               <div id="service-cards">
-              <p class="eyebrow">02 / Digital business cards</p><h3 id="service-cards-title">Digital business cards</h3><div class="beat-problem"><p class="beat-label">Problem</p><p class="problem-text">Paper cards get lost — and once printed, your details can’t change.</p></div><div class="beat-pair"><div><p class="beat-label">Fix</p><ul class="fix-list"><li><b>Your name and business details</b> — on one mobile-friendly page.</li><li><b>Only the links you choose</b> — just the contact and profile links you want shared.</li><li><b>One link to share</b> — sent in a tap, not handed over as a card.</li></ul></div><div class="beat-proof"><p class="beat-label">Proof</p><p>There’s a working one right here — open Payton’s card and try it yourself.</p><a class="text-link" href="payton-card.html">Open Payton’s digital card <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M5 11 11 5M6 5h5v5"/></svg></a></div></div><div class="practice"><p class="beat-label">In practice · Illustration</p><ul><li class="is-on" data-industry="home"><b>Home services:</b> a link to text after a quote — name, trade, service area, call button.</li><li data-industry="food"><b>Food &amp; café:</b> your social profile in one link — hours, address, how to order or book.</li><li data-industry="appointments"><b>Appointment-based:</b> your name, shop, and booking link — on a page clients can save and pass on.</li><li data-industry="professional"><b>Professional services:</b> an introduction to send after a meeting — name, role, firm, contact links.</li></ul></div>
+              <p class="eyebrow">02 / Digital business cards</p><h3 id="service-cards-title">Digital business cards</h3><div class="beat-problem"><p class="beat-label">Problem</p><p class="problem-text">Paper cards get lost — and your details can’t change once printed.</p></div><div class="beat-pair"><div><p class="beat-label">Fix</p><ul class="fix-list"><li><b>Name and business details</b> — one mobile-friendly page.</li><li><b>Only the links you choose</b> — contact and profile links you want shared.</li><li><b>One link to share</b> — sent in a tap.</li></ul></div><div class="beat-proof"><p class="beat-label">Proof</p><p>There’s a working one right here:</p><a class="text-link" href="payton-card.html">Open Payton’s digital card <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M5 11 11 5M6 5h5v5"/></svg></a></div></div><div class="practice"><p class="beat-label">In practice · Illustration</p><ul><li class="is-on" data-industry="home"><b>Home services:</b> a link to text after a quote — name, trade, service area, call button.</li><li data-industry="food"><b>Food &amp; café:</b> your social profile in one link — hours, address, how to order or book.</li><li data-industry="appointments"><b>Appointment-based:</b> your name, shop, and booking link — on a page clients can save and pass on.</li><li data-industry="professional"><b>Professional services:</b> an introduction to send after a meeting — name, role, firm, contact links.</li></ul></div>
               </div>
                           </article>
           </div>
         </div>
-        <p class="scope-note">Each project is scoped individually — pages, features, revisions, timing, and cost agreed before work begins. A demo is a concept, not a launched website.</p>
+        <p class="scope-note">Each project is scoped individually — scope, timing and cost agreed before work begins. A demo is a concept, not a launched website.</p>
       </div>
     </section>
 
