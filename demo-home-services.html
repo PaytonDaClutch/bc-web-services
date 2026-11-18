@@ -340,6 +340,53 @@
     @keyframes ripple-out { from { transform: scale(1); opacity: .75; } to { transform: scale(6); opacity: 0; } }
     @media (pointer: coarse) { .cursor-follower { display: none; } }
     @media print { .cursor-follower, .click-ripple { display: none !important; } }
+  
+    /* V17 — editorial craft pass: bigger serif type, eyebrow rules, staggered
+       gallery, receipt pricing, photo band, scroll reveals. */
+    ::selection { background: var(--copper-soft); }
+    h1 { font-size: clamp(3.1rem, 6.2vw, 5.3rem); }
+    h2 { font-size: clamp(2.3rem, 4.2vw, 3.6rem); }
+    .section { padding-block: 104px; }
+    .section-head { max-width: 720px; margin-bottom: 44px; }
+    .eyebrow { display: flex; align-items: center; gap: 12px; }
+    .eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--copper); flex: none; }
+    .hero .eyebrow::before { background: var(--copper); }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero .eyebrow, .hero h1, .hero-copy, .hero-actions, .hero-note { animation: heroUp .8s cubic-bezier(.2,.7,.2,1) both; }
+      .hero h1 { animation-delay: .08s; } .hero-copy { animation-delay: .16s; }
+      .hero-actions { animation-delay: .24s; } .hero-note { animation-delay: .32s; }
+      @keyframes heroUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    }
+    #house-stage { box-shadow: 0 30px 80px #0e241b33, 0 4px 18px #0e241b22; }
+    .stage-tag { background: var(--pine-950); color: #f0ddc8; letter-spacing: .14em; }
+    .button { transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+    .button-primary { position: relative; overflow: hidden; box-shadow: 0 10px 24px #b26a3540; }
+    .button-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 30px #b26a354d; }
+    .button-primary::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 40%, #ffffff38 50%, transparent 60%); transform: translateX(-120%); transition: transform .6s ease; pointer-events: none; }
+    .button-primary:hover::after { transform: translateX(120%); }
+    @media (prefers-reduced-motion: reduce) { .button-primary::after { display: none; } }
+    .proof b { font-size: 38px; color: #eec39a; }
+    .service { border-top: 3px solid transparent; }
+    .service:hover { border-top-color: var(--copper); }
+    .service .price { font: 600 1.3rem/1.3 var(--serif); letter-spacing: 0; text-transform: none; color: var(--copper-dark); }
+    .gallery { gap: 22px; padding-bottom: 30px; }
+    .shot img { height: 340px; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+    .shot:hover img { transform: scale(1.045); }
+    @media (min-width: 900px) { .gallery .shot:nth-child(even) { transform: translateY(30px); } }
+    .shot figcaption b { font-family: var(--serif); font-size: 16.5px; }
+    .price-table { background: var(--paper); border: 1px solid var(--line); border-top: 2px dashed var(--copper); border-radius: var(--radius-md); box-shadow: 0 20px 44px #14342a14; }
+    .est-total { font-family: var(--serif); }
+    .craft-photo { margin: 0 0 38px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line); background: var(--paper); box-shadow: 0 24px 50px #14342a26; }
+    .craft-photo img { width: 100%; height: auto; display: block; }
+    .craft-photo figcaption { padding: 11px 18px; font-size: 12.5px; color: var(--muted); }
+    .craft-photo figcaption b { color: var(--copper-dark); }
+    .photo-band { position: relative; line-height: 0; }
+    .photo-band img { width: 100%; height: min(54vh, 540px); object-fit: cover; display: block; }
+    .photo-band .band-note { position: absolute; right: 14px; bottom: 12px; margin: 0; background: #0e241bd9; color: #f3efe4; padding: 6px 11px; border-radius: 8px; font-size: 12px; line-height: 1.4; }
+    .photo-band .band-note b { color: #e8b07e; }
+    html.rv-on .rv { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    html.rv-on .rv.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { html.rv-on .rv { opacity: 1; transform: none; transition: none; } }
   </style>
 </head>
 <body>
@@ -417,7 +464,7 @@
     </section>
     <section class="section" aria-labelledby="ba-heading">
       <div class="wrap">
-        <div class="section-head"><p class="eyebrow">Before / after</p><h2 id="ba-heading">Drag the handle. See the week&rsquo;s work.</h2><p>A tired kitchen on the left, the same room after a Cascade refresh on the right — new cabinet fronts, copper hardware, tile, and light.</p></div>
+        <div class="section-head rv"><p class="eyebrow">Before / after</p><h2 id="ba-heading">Drag the handle. See the week&rsquo;s work.</h2><p>A tired kitchen on the left, the same room after a Cascade refresh on the right — new cabinet fronts, copper hardware, tile, and light.</p></div>
         <div class="ba" id="ba">
           <img src="cascade-assets/cascade-kitchen.webp" alt="AI-generated illustration of a renovated craftsman kitchen with evergreen cabinets, copper fixtures, and cream counters." width="1024" height="1024">
           <div class="ba-before" id="ba-before"><img src="cascade-assets/cascade-kitchen-before.webp" alt="" aria-hidden="true"></div>
@@ -431,20 +478,20 @@
     <section class="section wash" id="services" aria-labelledby="services-heading">
         <div class="mist-band" data-plx="0.10" aria-hidden="true"></div>
       <div class="wrap">
-        <div class="section-head"><p class="eyebrow">What we fix</p><h2 id="services-heading">Small jobs, done properly.</h2><p>Every service follows the same deal: we name the problem, quote the fix before starting, and stand behind the result.</p></div>
+        <div class="section-head rv"><p class="eyebrow">What we fix</p><h2 id="services-heading">Small jobs, done properly.</h2><p>Every service follows the same deal: we name the problem, quote the fix before starting, and stand behind the result.</p></div>
         <div class="service-grid">
-          <article class="service"><span class="svc-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 12h18M12 4v16"/></svg></span><h3>Drywall &amp; paint</h3><p><b>The problem:</b> dents, doorknob holes, water stains that never got fixed. <b>The fix:</b> patch, texture-match, prime and paint so it disappears. <b>The proof:</b> you can&rsquo;t find the patch in daylight.</p><p class="price">FROM $180 / PATCH</p></article>
-          <article class="service"><span class="svc-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v4M8 7h8v3a4 4 0 0 1-8 0V7zM12 14v3a3 3 0 0 0 3 3h1"/></svg></span><h3>Plumbing fixes</h3><p><b>The problem:</b> dripping faucets, running toilets, tired supply lines. <b>The fix:</b> swap or rebuild with quality parts, tested under pressure. <b>The proof:</b> dry cabinet, quiet toilet, no callback.</p><p class="price">FROM $145 / VISIT</p></article>
-          <article class="service"><span class="svc-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><circle cx="15.5" cy="12" r="1" fill="currentColor"/></svg></span><h3>Doors &amp; carpentry</h3><p><b>The problem:</b> doors that stick, latch poorly, or never hung straight. <b>The fix:</b> plane, rehang, new hardware, weatherstripping. <b>The proof:</b> one-finger close, even gap all round.</p><p class="price">FROM $130 / DOOR</p></article>
-          <article class="service"><span class="svc-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16v16H4zM4 9.3h16M4 14.6h16M9.3 4v5.3M14.6 9.3v5.3M9.3 14.6V20"/></svg></span><h3>Tile &amp; bath</h3><p><b>The problem:</b> cracked grout, loose tiles, failing caulk lines. <b>The fix:</b> regrout, reset, reseal with mould-resistant products. <b>The proof:</b> watertight seams, lines that stay white.</p><p class="price">FROM $220 / AREA</p></article>
-          <article class="service"><span class="svc-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg></span><h3>Electrical swaps</h3><p><b>The problem:</b> dead outlets, dated fixtures, switches that buzz. <b>The fix:</b> like-for-like swaps — fixtures, dimmers, GFCI outlets. <b>The proof:</b> tested at the panel and the wall.</p><p class="price">FROM $120 / FIXTURE</p></article>
-          <article class="service"><span class="svc-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 10h18M3 15h18M6 10v9M12 10v9M18 10v9M6 5.5 12 3l6 2.5"/></svg></span><h3>Decks &amp; fences</h3><p><b>The problem:</b> rotted boards, leaning panels, gates that drag. <b>The fix:</b> replace what&rsquo;s failed, reinforce what&rsquo;s sound. <b>The proof:</b> solid underfoot, gate swings true.</p><p class="price">FROM $260 / SECTION</p></article>
+          <article class="service rv"><span class="svc-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 12h18M12 4v16"/></svg></span><h3>Drywall &amp; paint</h3><p><b>The problem:</b> dents, doorknob holes, water stains that never got fixed. <b>The fix:</b> patch, texture-match, prime and paint so it disappears. <b>The proof:</b> you can&rsquo;t find the patch in daylight.</p><p class="price">FROM $180 / PATCH</p></article>
+          <article class="service rv"><span class="svc-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v4M8 7h8v3a4 4 0 0 1-8 0V7zM12 14v3a3 3 0 0 0 3 3h1"/></svg></span><h3>Plumbing fixes</h3><p><b>The problem:</b> dripping faucets, running toilets, tired supply lines. <b>The fix:</b> swap or rebuild with quality parts, tested under pressure. <b>The proof:</b> dry cabinet, quiet toilet, no callback.</p><p class="price">FROM $145 / VISIT</p></article>
+          <article class="service rv"><span class="svc-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><circle cx="15.5" cy="12" r="1" fill="currentColor"/></svg></span><h3>Doors &amp; carpentry</h3><p><b>The problem:</b> doors that stick, latch poorly, or never hung straight. <b>The fix:</b> plane, rehang, new hardware, weatherstripping. <b>The proof:</b> one-finger close, even gap all round.</p><p class="price">FROM $130 / DOOR</p></article>
+          <article class="service rv"><span class="svc-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16v16H4zM4 9.3h16M4 14.6h16M9.3 4v5.3M14.6 9.3v5.3M9.3 14.6V20"/></svg></span><h3>Tile &amp; bath</h3><p><b>The problem:</b> cracked grout, loose tiles, failing caulk lines. <b>The fix:</b> regrout, reset, reseal with mould-resistant products. <b>The proof:</b> watertight seams, lines that stay white.</p><p class="price">FROM $220 / AREA</p></article>
+          <article class="service rv"><span class="svc-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg></span><h3>Electrical swaps</h3><p><b>The problem:</b> dead outlets, dated fixtures, switches that buzz. <b>The fix:</b> like-for-like swaps — fixtures, dimmers, GFCI outlets. <b>The proof:</b> tested at the panel and the wall.</p><p class="price">FROM $120 / FIXTURE</p></article>
+          <article class="service rv"><span class="svc-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 10h18M3 15h18M6 10v9M12 10v9M18 10v9M6 5.5 12 3l6 2.5"/></svg></span><h3>Decks &amp; fences</h3><p><b>The problem:</b> rotted boards, leaning panels, gates that drag. <b>The fix:</b> replace what&rsquo;s failed, reinforce what&rsquo;s sound. <b>The proof:</b> solid underfoot, gate swings true.</p><p class="price">FROM $260 / SECTION</p></article>
         </div>
       </div>
     </section>
     <section class="section studio" id="studio" aria-labelledby="studio-heading">
       <div class="wrap">
-        <div class="section-head"><p class="eyebrow">Remodel studio</p><h2 id="studio-heading">Design the kitchen refresh.</h2><p>Swap the finishes and watch a sample estimate build itself — no showroom trip, no swatch book.</p></div>
+        <div class="section-head rv"><p class="eyebrow">Remodel studio</p><h2 id="studio-heading">Design the kitchen refresh.</h2><p>Swap the finishes and watch a sample estimate build itself — no showroom trip, no swatch book.</p></div>
         <div class="studio-grid">
           <div class="stage" id="room-stage">
             <span class="stage-tag">AI PHOTO · PICK A CABINET FINISH</span>
@@ -469,7 +516,7 @@
               <button class="swatch" type="button" data-value="Slate tile" data-color="0x87928b" data-price="720" aria-pressed="false"><i style="background:#5c6660"></i>Slate tile</button>
             </div></div>
             <p class="studio-note">The photo follows your most recent pick, and every pick updates the estimate.</p>
-            <div class="estimate" aria-live="polite">
+            <div class="estimate rv" aria-live="polite">
               <p class="est-label">Sample estimate · labour + materials</p>
               <p class="est-total" id="est-total">$5,700</p>
               <p class="est-picks" id="est-picks">Evergreen cabinets · Cream quartz counters · Light oak floor</p>
@@ -482,12 +529,12 @@
     <section class="section" aria-labelledby="gallery-heading">
         <div class="mist-band" data-plx="0.14" aria-hidden="true"></div>
       <div class="wrap">
-        <div class="section-head"><p class="eyebrow">Recent work</p><h2 id="gallery-heading">The kind of list we finish.</h2><p>Kitchens, baths, doors, and porches — the small jobs that make a house feel kept.</p></div>
+        <div class="section-head rv"><p class="eyebrow">Recent work</p><h2 id="gallery-heading">The kind of list we finish.</h2><p>Kitchens, baths, doors, and porches — the small jobs that make a house feel kept.</p></div>
         <div class="gallery">
-          <figure class="shot"><img src="cascade-assets/cascade-kitchen.webp" alt="AI-generated illustration of a renovated kitchen with evergreen cabinets and copper fixtures." loading="lazy" width="1024" height="1024"><figcaption><b>Kitchen refresh — Ballard</b>Cabinet fronts, copper hardware, tile, and light. Five days, one crew.</figcaption></figure>
-          <figure class="shot"><img src="cascade-assets/cascade-bath.webp" alt="AI-generated illustration of a renovated bathroom with sage tiles and a cream vanity." loading="lazy" width="1024" height="1024"><figcaption><b>Bath retile — Fremont</b>Sage subway tile, regrout, reseal, new vanity and copper fixtures.</figcaption></figure>
-          <figure class="shot"><img src="cascade-assets/cascade-door.webp" alt="AI-generated illustration of a craftsperson levelling a new oak door during installation." loading="lazy" width="1024" height="1024"><figcaption><b>Door, hung true — Greenwood</b>Oak door planed, rehung, and levelled. One-finger close, even gap.</figcaption></figure>
-          <figure class="shot"><img src="cascade-assets/cascade-exterior.webp" alt="AI-generated illustration of a green craftsman house with a new cedar porch." loading="lazy" width="1024" height="1024"><figcaption><b>Porch rebuild — Queen Anne</b>Cedar deck and rails replaced, porch light refitted, trim repainted.</figcaption></figure>
+          <figure class="shot rv"><img src="cascade-assets/cascade-kitchen.webp" alt="AI-generated illustration of a renovated kitchen with evergreen cabinets and copper fixtures." loading="lazy" width="1024" height="1024"><figcaption><b>Kitchen refresh — Ballard</b>Cabinet fronts, copper hardware, tile, and light. Five days, one crew.</figcaption></figure>
+          <figure class="shot rv"><img src="cascade-assets/cascade-bath.webp" alt="AI-generated illustration of a renovated bathroom with sage tiles and a cream vanity." loading="lazy" width="1024" height="1024"><figcaption><b>Bath retile — Fremont</b>Sage subway tile, regrout, reseal, new vanity and copper fixtures.</figcaption></figure>
+          <figure class="shot rv"><img src="cascade-assets/cascade-door.webp" alt="AI-generated illustration of a craftsperson levelling a new oak door during installation." loading="lazy" width="1024" height="1024"><figcaption><b>Door, hung true — Greenwood</b>Oak door planed, rehung, and levelled. One-finger close, even gap.</figcaption></figure>
+          <figure class="shot rv"><img src="cascade-assets/cascade-exterior.webp" alt="AI-generated illustration of a green craftsman house with a new cedar porch." loading="lazy" width="1024" height="1024"><figcaption><b>Porch rebuild — Queen Anne</b>Cedar deck and rails replaced, porch light refitted, trim repainted.</figcaption></figure>
         </div>
         <p class="ai-note"><b>AI-generated illustrations</b> for this concept demo — a live Cascade site would show the crew&rsquo;s real, permissioned project photos here.</p>
       </div>
@@ -495,18 +542,20 @@
     <section class="section wash" aria-labelledby="process-heading">
         <div class="mist-band" data-plx="0.08" aria-hidden="true"></div>
       <div class="wrap">
-        <div class="section-head"><p class="eyebrow">How it works</p><h2 id="process-heading">No runaround. Three steps.</h2></div>
+        <div class="section-head rv"><p class="eyebrow">How it works</p><h2 id="process-heading">No runaround. Three steps.</h2></div>
+        <figure class="craft-photo rv"><img src="cascade-assets/cascade-craftsman.webp" alt="AI-generated photo of a craftsperson planing a cedar board in a warm workshop, wood shavings curling off the plane." loading="lazy" width="1440" height="960"><figcaption><b>AI-generated photo</b> for this concept demo — a live site would show the crew&rsquo;s real hands at work.</figcaption></figure>
+        
         <div class="steps">
-          <article class="step"><p class="eyebrow">01 / Call</p><h3>Describe the list.</h3><p>Call or send photos of what&rsquo;s broken. Most small jobs are quoted from photos the same day.</p></article>
-          <article class="step"><p class="eyebrow">02 / Quote</p><h3>Approve a fixed price.</h3><p>You get an itemised quote before anyone picks up a tool. The price you approve is the price you pay.</p></article>
-          <article class="step"><p class="eyebrow">03 / Done</p><h3>Fixed, cleaned, warranted.</h3><p>We do the work, haul our mess, and walk the job with you. Every fix is warranted for 12 months.</p></article>
+          <article class="step rv"><p class="eyebrow">01 / Call</p><h3>Describe the list.</h3><p>Call or send photos of what&rsquo;s broken. Most small jobs are quoted from photos the same day.</p></article>
+          <article class="step rv"><p class="eyebrow">02 / Quote</p><h3>Approve a fixed price.</h3><p>You get an itemised quote before anyone picks up a tool. The price you approve is the price you pay.</p></article>
+          <article class="step rv"><p class="eyebrow">03 / Done</p><h3>Fixed, cleaned, warranted.</h3><p>We do the work, haul our mess, and walk the job with you. Every fix is warranted for 12 months.</p></article>
         </div>
       </div>
     </section>
     <section class="section" id="pricing" aria-labelledby="pricing-heading">
       <div class="wrap">
-        <div class="section-head"><p class="eyebrow">Sample pricing</p><h2 id="pricing-heading">Prices before we start.</h2><p>Your quote is fixed and itemised before work begins — these are starting points, not surprises.</p></div>
-        <div class="price-table">
+        <div class="section-head rv"><p class="eyebrow">Sample pricing</p><h2 id="pricing-heading">Prices before we start.</h2><p>Your quote is fixed and itemised before work begins — these are starting points, not surprises.</p></div>
+        <div class="price-table rv">
           <div class="price-row"><div><b>Drywall patch (up to 12")</b><p>Patch, texture match, prime — paint-ready</p></div><b>$180–$240</b></div>
           <div class="price-row"><div><b>Faucet replacement</b><p>Kitchen or bath, owner-supplied fixture</p></div><b>$165–$210</b></div>
           <div class="price-row"><div><b>Door rehang &amp; hardware</b><p>Plane, rehang, new hinges and latch</p></div><b>$130–$175</b></div>
@@ -519,19 +568,23 @@
     <section class="section wash" aria-labelledby="area-heading">
       <div class="wrap split">
         <div id="area">
-          <div class="section-head"><p class="eyebrow">Service area</p><h2 id="area-heading">Seattle &amp; the Eastside.</h2><p>Based in Ballard, covering the city and the near Eastside. Just outside the list? Ask — it&rsquo;s a guide, not a wall.</p></div>
+          <div class="section-head rv"><p class="eyebrow">Service area</p><h2 id="area-heading">Seattle &amp; the Eastside.</h2><p>Based in Ballard, covering the city and the near Eastside. Just outside the list? Ask — it&rsquo;s a guide, not a wall.</p></div>
           <ul class="area-list">
             <li>Ballard</li><li>Fremont</li><li>Greenwood</li><li>Wallingford</li><li>Queen Anne</li><li>Magnolia</li><li>West Seattle</li><li>Capitol Hill</li><li>Bellevue</li><li>Kirkland</li><li>Redmond</li><li>Shoreline</li>
           </ul>
         </div>
         <div id="faq">
-          <div class="section-head"><p class="eyebrow">Questions</p><h2 id="faq-heading">Asked often.</h2></div>
+          <div class="section-head rv"><p class="eyebrow">Questions</p><h2 id="faq-heading">Asked often.</h2></div>
           <details><summary>Do you charge by the hour?</summary><p>No. Small jobs are quoted flat and itemised before we start. The only exception is the half-day block, which is a flat four hours against your list.</p></details>
           <details><summary>How fast can you come out?</summary><p>Most jobs are booked within three days. Genuine emergencies — active leaks, a door that won&rsquo;t close — get the first slot we can move.</p></details>
           <details><summary>Is the work guaranteed?</summary><p>Yes. Workmanship is warranted for 12 months. If our fix fails, we come back and make it right at no charge.</p></details>
           <details><summary>Do you supply parts and materials?</summary><p>Either way. We&rsquo;ll supply quality parts at cost with receipts, or fit what you&rsquo;ve already bought — the quote says which, before we start.</p></details>
         </div>
       </div>
+    </section>
+    <section class="photo-band" aria-label="A Cascade porch at dusk">
+      <img src="cascade-assets/cascade-porch-evening.webp" alt="AI-generated photo of a green craftsman house with a cedar porch, its windows glowing at dusk among misty evergreens." loading="lazy" width="1600" height="1066">
+      <p class="band-note"><b>AI-generated photo</b> for this concept demo.</p>
     </section>
     <section class="section contact" id="contact" aria-labelledby="contact-heading">
       <div class="wrap contact-grid">
@@ -541,7 +594,7 @@
           <p class="contact-copy">Tell us what&rsquo;s on the list — or send photos and we&rsquo;ll quote from those. You&rsquo;ll talk to the person who schedules the work, not a call centre.</p>
           <div class="hours"><span><b>Mon–Sat</b> · 7:00am – 7:00pm</span><span><b>Sunday</b> · Emergency calls only</span><span>Based in Ballard, Seattle</span></div>
         </div>
-        <div class="contact-panel">
+        <div class="contact-panel rv">
           <a class="button button-primary" href="tel:+18000000000">Call 1 (800) 000-0000</a>
           <a class="button" href="mailto:info@example.com?subject=Repair%20list%20—%20quote%20request">Email the list instead</a>
           <p>Sample contact details for this concept demo. A live site uses the business&rsquo;s real number — answered by a person, not a form.</p>
@@ -941,6 +994,23 @@
           document.body.appendChild(r);
           setTimeout(function () { r.remove(); }, 650);
         }, { passive: true });
+      } catch (err) { /* static page remains */ }
+    })();
+  </script>
+  <script>
+    /* V17 — scroll reveals. JS-gated (html.rv-on) so no-JS still shows everything;
+       off entirely under reduced motion. */
+    (function () {
+      try {
+        if (!('IntersectionObserver' in window)) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        document.documentElement.classList.add('rv-on');
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+          });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
       } catch (err) { /* static page remains */ }
     })();
   </script>
