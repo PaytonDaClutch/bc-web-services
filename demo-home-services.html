@@ -443,6 +443,10 @@
     body { overflow-x: clip; }
     @media (max-width: 900px) { .site-nav > a.button { display: inline-flex; } }
     @media (max-width: 560px) { .site-nav > a.button { display: none; } }
+  
+    /* V22 — readability: text never sits raw on the forest photo. The plain
+       sections get the same parchment veil as the hero. */
+    .section:not(.wash):not(.studio):not(.contact) { background: color-mix(in srgb, var(--parchment) 88%, transparent); }
   </style>
 </head>
 <body>
