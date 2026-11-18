@@ -331,6 +331,15 @@
     .spin-frame { opacity: 0; }
     #house-stage .marker { z-index: 3; transition: opacity .3s ease; }
     #house-stage:not(.at-front) .marker { opacity: 0; pointer-events: none; }
+  
+    /* V46 — page CTA line, cursor follower, click ripple. */
+    .cta-line { font-size: 1.15rem; }
+    .cursor-follower { position: fixed; left: 0; top: 0; width: 28px; height: 28px; border: 1.5px solid #b26a35; border-radius: 50%; pointer-events: none; z-index: 200; opacity: 0; transition: opacity .3s ease; }
+    .cursor-follower.is-on { opacity: .8; }
+    .click-ripple { position: fixed; width: 14px; height: 14px; margin: -7px 0 0 -7px; border: 2px solid #b26a35; border-radius: 50%; pointer-events: none; z-index: 200; animation: ripple-out .6s ease-out forwards; }
+    @keyframes ripple-out { from { transform: scale(1); opacity: .75; } to { transform: scale(6); opacity: 0; } }
+    @media (pointer: coarse) { .cursor-follower { display: none; } }
+    @media print { .cursor-follower, .click-ripple { display: none !important; } }
   </style>
 </head>
 <body>
@@ -899,6 +908,41 @@
     render();
   } catch (err) { /* static front photo remains */ }
 })();
+  </script>
+  <script>
+    /* V46 — cursor follower + click ripple. Fine pointers only; off with reduced motion. */
+    (function () {
+      try {
+        if (!window.matchMedia('(pointer: fine)').matches) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var ring = document.createElement('div');
+        ring.className = 'cursor-follower';
+        ring.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(ring);
+        var x = -100, y = -100, tx = -100, ty = -100, shown = false;
+        document.addEventListener('pointermove', function (e) {
+          tx = e.clientX; ty = e.clientY;
+          if (!shown) { shown = true; x = tx; y = ty; ring.classList.add('is-on'); }
+        }, { passive: true });
+        (function loop() {
+          x += (tx - x) * 0.2; y += (ty - y) * 0.2;
+          var s = ring.classList.contains('is-hot') ? 1.6 : 1;
+          ring.style.transform = 'translate(' + (x - 14) + 'px,' + (y - 14) + 'px) scale(' + s + ')';
+          requestAnimationFrame(loop);
+        })();
+        var hot = 'a, button, input, label, summary, [role="button"]';
+        document.addEventListener('pointerover', function (e) { if (e.target.closest(hot)) ring.classList.add('is-hot'); }, { passive: true });
+        document.addEventListener('pointerout', function (e) { if (e.target.closest(hot)) ring.classList.remove('is-hot'); }, { passive: true });
+        document.addEventListener('pointerdown', function (e) {
+          var r = document.createElement('span');
+          r.className = 'click-ripple';
+          r.setAttribute('aria-hidden', 'true');
+          r.style.left = e.clientX + 'px'; r.style.top = e.clientY + 'px';
+          document.body.appendChild(r);
+          setTimeout(function () { r.remove(); }, 650);
+        }, { passive: true });
+      } catch (err) { /* static page remains */ }
+    })();
   </script>
 </body>
 </html>
