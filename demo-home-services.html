@@ -427,6 +427,11 @@
     .button-primary { background: linear-gradient(160deg, #c96f1e, var(--copper) 55%, var(--copper-dark)); border: 2px solid var(--copper-dark); }
     .button-ghost { border-width: 2px; }
     .demo-bar { background: #f7dfae; border-bottom: 2px solid #d9a94f; }
+  
+    /* V19 — the B&C standard: ghost wordmark footer, like the main site. */
+    .site-footer { overflow: hidden; }
+    .footer-giant { font-family: var(--serif); font-weight: 700; font-size: clamp(84px, 13.5vw, 178px); line-height: .78; letter-spacing: -.01em; color: #14342a12; margin-top: 24px; transform: translateY(16%); white-space: nowrap; }
+    @media print { .footer-giant { display: none; } }
   </style>
 </head>
 <body>
@@ -454,13 +459,13 @@
         <svg class="sc-layer sc-mid" viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax slice"><path d="M0,462 L140,410 L300,448 L470,398 L660,452 L840,404 L1030,454 L1210,412 L1360,448 L1440,426 L1440,620 L0,620 Z"/></svg>
         <svg class="sc-layer sc-near" viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax slice"><g><path d="M-10,620 L17,470 L44,620 Z"/><path d="M52,620 L79,415 L106,620 Z"/><path d="M114,620 L141,452 L168,620 Z"/><path d="M176,620 L203,388 L230,620 Z"/><path d="M238,620 L265,442 L292,620 Z"/><path d="M300,620 L327,406 L354,620 Z"/><path d="M362,620 L389,462 L416,620 Z"/><path d="M424,620 L451,380 L478,620 Z"/><path d="M486,620 L513,434 L540,620 Z"/><path d="M548,620 L575,412 L602,620 Z"/><path d="M610,620 L637,456 L664,620 Z"/><path d="M672,620 L699,394 L726,620 Z"/><path d="M734,620 L761,444 L788,620 Z"/><path d="M796,620 L823,422 L850,620 Z"/><path d="M858,620 L885,468 L912,620 Z"/><path d="M920,620 L947,402 L974,620 Z"/><path d="M982,620 L1009,432 L1036,620 Z"/><path d="M1044,620 L1071,414 L1098,620 Z"/></g></svg>
         <span class="mist m1"></span><span class="mist m2"></span>
-        <span class="mote" style="left:12%;top:30%"></span><span class="mote" style="left:26%;top:52%;animation-delay:-3s"></span><span class="mote" style="left:58%;top:24%;animation-delay:-6s"></span><span class="mote" style="left:74%;top:46%;animation-delay:-2s"></span><span class="mote" style="left:88%;top:34%;animation-delay:-8s"></span>
+        
       </div>
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">Home repair · Seattle &amp; the Eastside</p>
           <h1 id="hero-heading">The repair list ends <span>this week.</span></h1>
-          <p class="hero-copy">Drywall, doors, leaks, tile, and the hundred small fixes that pile up. One call, an upfront price before we start, and a crew that shows up when we say we will.</p>
+          <p class="hero-copy">Drywall, doors, leaks, tile — the small fixes that pile up. One call, an upfront price before we start, and a crew that shows up when we say we will.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="tel:+18000000000">Call 1 (800) 000-0000</a>
             <a class="button button-ghost" href="#studio">Try the remodel studio</a>
@@ -490,7 +495,7 @@
             <button class="chip" type="button" data-part="windows" aria-pressed="false">Windows</button>
             <button class="chip" type="button" data-part="porch" aria-pressed="false">Porch &amp; deck</button>
           </div>
-          <p class="hotspot-blurb" id="house-blurb">Drag to spin all the way around the house — or tap a marker and the view swings to that part and zooms in. Every marker is a real Cascade service, with the sample price we&rsquo;d quote before starting.</p>
+          <p class="hotspot-blurb" id="house-blurb">Drag to spin around the house, or tap a marker to swing to that part and zoom in. Every marker is a real Cascade service, with the sample price we&rsquo;d quote before starting.</p>
         </div>
       </div>
     </section>
@@ -504,7 +509,7 @@
     </section>
     <section class="section" aria-labelledby="ba-heading">
       <div class="wrap">
-        <div class="section-head rv"><p class="eyebrow">Before / after</p><h2 id="ba-heading">Drag the handle. See the week&rsquo;s work.</h2><p>A tired kitchen on the left, the same room after a Cascade refresh on the right — new cabinet fronts, copper hardware, tile, and light.</p></div>
+        <div class="section-head rv"><p class="eyebrow">Before / after</p><h2 id="ba-heading">Drag the handle. See the week&rsquo;s work.</h2><p>A tired kitchen on the left; the same room after a Cascade refresh on the right.</p></div>
         <div class="ba" id="ba">
           <img src="cascade-assets/cascade-kitchen.webp" alt="AI-generated illustration of a renovated craftsman kitchen with evergreen cabinets, copper fixtures, and cream counters." width="1024" height="1024">
           <div class="ba-before" id="ba-before"><img src="cascade-assets/cascade-kitchen-before.webp" alt="" aria-hidden="true"></div>
@@ -516,9 +521,8 @@
       </div>
     </section>
     <section class="section wash" id="services" aria-labelledby="services-heading">
-        <div class="mist-band" data-plx="0.10" aria-hidden="true"></div>
       <div class="wrap">
-        <div class="section-head rv"><p class="eyebrow">What we fix</p><h2 id="services-heading">Small jobs, done properly.</h2><p>Every service follows the same deal: we name the problem, quote the fix before starting, and stand behind the result.</p></div>
+        <div class="section-head rv"><p class="eyebrow">What we fix</p><h2 id="services-heading">Small jobs, done properly.</h2><p>Same deal on every job: we name the problem, quote the fix before starting, and stand behind the result.</p></div>
         <div class="service-grid">
           <article class="service rv"><span class="svc-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 12h18M12 4v16"/></svg></span><h3>Drywall &amp; paint</h3><p><b>The problem:</b> dents, doorknob holes, water stains that never got fixed. <b>The fix:</b> patch, texture-match, prime and paint so it disappears. <b>The proof:</b> you can&rsquo;t find the patch in daylight.</p><p class="price">FROM $180 / PATCH</p></article>
           <article class="service rv"><span class="svc-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v4M8 7h8v3a4 4 0 0 1-8 0V7zM12 14v3a3 3 0 0 0 3 3h1"/></svg></span><h3>Plumbing fixes</h3><p><b>The problem:</b> dripping faucets, running toilets, tired supply lines. <b>The fix:</b> swap or rebuild with quality parts, tested under pressure. <b>The proof:</b> dry cabinet, quiet toilet, no callback.</p><p class="price">FROM $145 / VISIT</p></article>
@@ -567,7 +571,6 @@
       </div>
     </section>
     <section class="section" aria-labelledby="gallery-heading">
-        <div class="mist-band" data-plx="0.14" aria-hidden="true"></div>
       <div class="wrap">
         <div class="section-head rv"><p class="eyebrow">Recent work</p><h2 id="gallery-heading">The kind of list we finish.</h2><p>Kitchens, baths, doors, and porches — the small jobs that make a house feel kept.</p></div>
         <div class="gallery">
@@ -580,7 +583,6 @@
       </div>
     </section>
     <section class="section wash" aria-labelledby="process-heading">
-        <div class="mist-band" data-plx="0.08" aria-hidden="true"></div>
       <div class="wrap">
         <div class="section-head rv"><p class="eyebrow">How it works</p><h2 id="process-heading">No runaround. Three steps.</h2></div>
         <figure class="craft-photo rv"><img src="cascade-assets/cascade-craftsman.webp" alt="AI-generated photo of a craftsperson planing a cedar board in a warm workshop, wood shavings curling off the plane." loading="lazy" width="1440" height="960"><figcaption><b>AI-generated photo</b> for this concept demo — a live site would show the crew&rsquo;s real hands at work.</figcaption></figure>
@@ -618,7 +620,7 @@
           <details><summary>Do you charge by the hour?</summary><p>No. Small jobs are quoted flat and itemised before we start. The only exception is the half-day block, which is a flat four hours against your list.</p></details>
           <details><summary>How fast can you come out?</summary><p>Most jobs are booked within three days. Genuine emergencies — active leaks, a door that won&rsquo;t close — get the first slot we can move.</p></details>
           <details><summary>Is the work guaranteed?</summary><p>Yes. Workmanship is warranted for 12 months. If our fix fails, we come back and make it right at no charge.</p></details>
-          <details><summary>Do you supply parts and materials?</summary><p>Either way. We&rsquo;ll supply quality parts at cost with receipts, or fit what you&rsquo;ve already bought — the quote says which, before we start.</p></details>
+          <details><summary>Do you supply parts and materials?</summary><p>Either way — we supply quality parts at cost with receipts, or fit what you&rsquo;ve bought. The quote says which, before we start.</p></details>
         </div>
       </div>
     </section>
@@ -631,18 +633,18 @@
         <div>
           <p class="eyebrow">Start the list</p>
           <h2 id="contact-heading">One call and<br>it&rsquo;s handled.</h2>
-          <p class="contact-copy">Tell us what&rsquo;s on the list — or send photos and we&rsquo;ll quote from those. You&rsquo;ll talk to the person who schedules the work, not a call centre.</p>
+          <p class="contact-copy">Tell us what&rsquo;s on the list — or send photos and we&rsquo;ll quote from those. You talk to the person who schedules the work, not a call centre.</p>
           <div class="hours"><span><b>Mon–Sat</b> · 7:00am – 7:00pm</span><span><b>Sunday</b> · Emergency calls only</span><span>Based in Ballard, Seattle</span></div>
         </div>
         <div class="contact-panel rv">
           <a class="button button-primary" href="tel:+18000000000">Call 1 (800) 000-0000</a>
           <a class="button" href="mailto:info@example.com?subject=Repair%20list%20—%20quote%20request">Email the list instead</a>
-          <p>Sample contact details for this concept demo. A live site uses the business&rsquo;s real number — answered by a person, not a form.</p>
+          <p>Sample details for this concept demo — a live site uses the business&rsquo;s real number.</p>
         </div>
       </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="wrap footer-inner"><p>© 2026 Cascade Home Repair — fictional business, shown as a design concept.</p><p>Concept demo by <a href="index.html">B&amp;C Web Services</a> · Blosch &amp; Cero</p></div></footer>
+  <footer class="site-footer"><div class="wrap footer-inner"><p>© 2026 Cascade Home Repair — fictional business, shown as a design concept.</p><p>Concept demo by <a href="index.html">B&amp;C Web Services</a> · Blosch &amp; Cero</p></div><div class="wrap footer-giant" aria-hidden="true">CASCADE</div></footer>
   <nav aria-label="Mobile contact"><a class="button button-primary mobile-cta" href="tel:+18000000000">Call Cascade — 1 (800) 000-0000</a></nav>
   <script>
   (function () {
