@@ -479,7 +479,7 @@
     .demo-bar .wrap { min-height: 44px; }
     .demo-bar a { display: inline-flex; align-items: center; min-height: 44px; }
     @media (max-width: 560px) { .mobile-cta { position: fixed; } }
-    /* V26 — GATE FIXES + ROUND-3 FIXES (WEB CRITIC gate + TASTE COP sweeps, 2026-11-18) */
+    /* V27 — ROUND-2 GATE FIXES (WEB CRITIC round 2 + TASTE COP round 3, 2026-11-18) */
     .estimate .est-label { font-size: 12.5px; }
     .price-row div p { font-size: 17.5px; }
     .contact-panel p { font-size: 17.5px; }
@@ -493,6 +493,15 @@
     /* V26 — house-rule 44px targets (round-3 sweep): house markers + nav links */
     .marker { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
     .site-nav > a { padding-inline: 8px; }
+  
+    /* V27 — hero contrast over the forest photo (round-2 gate blocker: blurb 4.31:1, accent 2.96:1) */
+    @media screen {
+      .hero { background: linear-gradient(180deg, color-mix(in srgb, var(--parchment) 92%, transparent), color-mix(in srgb, var(--cream) 88%, transparent)); }
+      .hero h1 span { color: var(--copper-dark); }
+      .hero-copy { color: var(--bark); }
+    }
+    /* V27 — phones: the fixed call bar is the one call action (round-2 gate: duplicated tel, covered hero button at 320px) */
+    @media (max-width: 560px) { .hero-actions .button-primary { display: none; } }
   </style>
 </head>
 <body>
@@ -531,7 +540,7 @@
         <div>
           <div class="stage" id="house-stage">
             <span class="stage-tag">AI PHOTOS · DRAG TO SPIN</span>
-            <div class="photo-focus" id="house-focus"><img class="scene-fallback" id="house-fallback" src="cascade-assets/cascade-exterior.webp" alt="AI-generated illustration of a green Seattle craftsman house with a new cedar porch, the kind of home Cascade works on." width="1024" height="1024">
+            <div class="photo-focus" id="house-focus"><img class="scene-fallback" id="house-fallback" src="cascade-assets/cascade-exterior.webp" alt="AI-generated illustration of a green Seattle craftsman house with a new cedar porch, the kind of home Cascade works on." width="1200" height="800">
             <img class="spin-frame" data-src="cascade-assets/cascade-spin-045.webp" alt="" aria-hidden="true" draggable="false">
             <img class="spin-frame" data-src="cascade-assets/cascade-spin-090.webp" alt="" aria-hidden="true" draggable="false">
             <img class="spin-frame" data-src="cascade-assets/cascade-spin-135.webp" alt="" aria-hidden="true" draggable="false">

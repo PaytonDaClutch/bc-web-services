@@ -917,7 +917,7 @@
     .proof-item, .svc-panel li, .svc-panel p, .step > p:not(.eyebrow), .step dd, .step-rows, .example-body p:not(.example-label), .beat-proof p:not(.beat-label), .contact-checklist li, .price-table td, .price-table tfoot td, .price-table tbody th span { font-size: var(--fs-body); }
     .beat-label, .example-label { font-weight: 600; }
     .text-link { min-height: 44px; }
-    /* V52 — GATE FIXES + ROUND-3 FIXES (WEB CRITIC gate + TASTE COP sweeps, 2026-11-18) */
+    /* V53 — ROUND-2 GATE FIXES (WEB CRITIC round 2 + TASTE COP round 3, 2026-11-18) */
     .svc-panel p.beat-label { font-size: var(--fs-label); font-weight: 600; }
     .example-body p.example-label { font-weight: 600; }
     .examples-foot { font-size: var(--fs-body); }
@@ -927,6 +927,9 @@
       .site-nav .nav-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; margin-bottom: var(--space-2); }
     }
 
+  
+    /* V53 — open mobile menu must not show the hero through it (round-2 gate major) */
+    .site-header { background: var(--ink); }
   </style>
 </head>
 <body>
@@ -942,6 +945,7 @@
         <a href="services.html">Services</a><a href="concepts.html">Concepts</a><a href="index.html#about">Our founders</a><a href="contact.html">Contact</a>
       </nav>
       <a class="button button-primary header-email" href="contact.html">Discuss your website <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      <a class="header-call" href="mailto:bloschandcerowebservices@gmail.com"><span class="call-long">Email us</span><span class="call-short">Email</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Menu: open navigation">Menu</button>
     </div>
   </header>
