@@ -913,6 +913,10 @@
     @media (pointer: coarse) {
       .founder, .receipt, .contact-panel, .svc-panel, .hero-scene { transform: none !important; }
     }
+    /* V50 — READABILITY SWEEP FIXES (Crew Standard rule 8) */
+    .proof-item, .svc-panel li, .svc-panel p, .step > p:not(.eyebrow), .step dd, .step-rows, .example-body p:not(.example-label), .beat-proof p:not(.beat-label), .contact-checklist li, .price-table td, .price-table tfoot td, .price-table tbody th span { font-size: var(--fs-body); }
+    .beat-label, .example-label { font-weight: 600; }
+    .text-link { min-height: 44px; }
   </style>
 </head>
 <body>

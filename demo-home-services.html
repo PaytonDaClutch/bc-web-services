@@ -455,6 +455,30 @@
       body { padding-top: 83px; }
       html { scroll-padding-top: 92px; }
     }
+    /* V24 — READABILITY SWEEP FIXES (Crew Standard rules 5, 8, 11) */
+    .scenery::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #f4ebd9f2 0%, #f4ebd9c9 36%, #f4ebd900 64%), linear-gradient(0deg, #f4ebd9e0 0%, #f4ebd900 26%); }
+    .button-primary { background: #a3540f; }
+    .button-primary:hover { background: #8f4a0c; }
+    .brand-name small { font: 650 12.5px/1.4 var(--mono); }
+    .stage-tag { font: 650 12.5px/1.5 var(--mono); }
+    .ba-tag { font: 650 12.5px/1.5 var(--mono); }
+    .est-label { font-size: 12.5px; }
+    .ai-note { font-size: 12.5px; }
+    .photo-band .band-note { font-size: 12.5px; }
+    .service p { font-size: 17.5px; }
+    .service .price { font-size: 12.5px; }
+    .step p { font-size: 17.5px; }
+    .hero-copy { font-size: 17.5px; }
+    .estimate .est-picks { font-size: 17.5px; }
+    .price-row div p { font-size: 15px; }
+    .contact-panel p { font-size: 15px; }
+    .hotspot-blurb { font-size: 15px; }
+    .site-footer { font-size: 15.5px; }
+    details > summary { padding-block: 13px; }
+    .marker { width: 40px; height: 40px; margin: -20px 0 0 -20px; }
+    .demo-bar .wrap { min-height: 44px; }
+    .demo-bar a { display: inline-flex; align-items: center; min-height: 44px; }
+    @media (max-width: 560px) { .mobile-cta { position: fixed; } }
   </style>
 </head>
 <body>
