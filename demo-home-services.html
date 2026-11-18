@@ -456,7 +456,7 @@
       html { scroll-padding-top: 92px; }
     }
     /* V24 — READABILITY SWEEP FIXES (Crew Standard rules 5, 8, 11) */
-    .scenery::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #f4ebd9f2 0%, #f4ebd9c9 36%, #f4ebd900 64%), linear-gradient(0deg, #f4ebd9e0 0%, #f4ebd900 26%); }
+    .scenery::after { content: ""; position: absolute; inset: 0; background: linear-gradient(270deg, #f4ebd9e6 0%, #f4ebd9b8 30%, #f4ebd900 56%), linear-gradient(90deg, #f4ebd9f2 0%, #f4ebd9c9 36%, #f4ebd900 64%), linear-gradient(0deg, #f4ebd9e0 0%, #f4ebd900 26%); }
     .button-primary { background: #a3540f; }
     .button-primary:hover { background: #8f4a0c; }
     .brand-name small { font: 650 12.5px/1.4 var(--mono); }
@@ -479,6 +479,16 @@
     .demo-bar .wrap { min-height: 44px; }
     .demo-bar a { display: inline-flex; align-items: center; min-height: 44px; }
     @media (max-width: 560px) { .mobile-cta { position: fixed; } }
+    /* V25 — GATE FIXES (WEB CRITIC gate + TASTE COP re-sweep, 2026-11-18) */
+    .estimate .est-label { font-size: 12.5px; }
+    .price-row div p { font-size: 17.5px; }
+    .contact-panel p { font-size: 17.5px; }
+    .hotspot-blurb { font-size: 17.5px; }
+    .site-footer { font-size: 17.5px; }
+    .photo-band .band-note { font-weight: 600; }
+    @media (max-width: 560px) and (max-height: 880px) { .hero { padding-top: 26px; } }
+    @media (max-width: 400px) { .brand-name small { letter-spacing: .02em; } }
+
   </style>
 </head>
 <body>
@@ -501,7 +511,7 @@
   </header>
   <main id="main" tabindex="-1">
     <section class="hero" id="top" aria-labelledby="hero-heading">
-      <div class="scenery" aria-hidden="true"><img class="hero-forest" src="cascade-assets/cascade-hero-forest.webp" alt="" width="1600" height="1066"></div>
+      <div class="scenery" aria-hidden="true"><img class="hero-forest" fetchpriority="high" src="cascade-assets/cascade-hero-forest.webp" alt="" width="1600" height="1066"></div>
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">Home repair · Seattle &amp; the Eastside</p>
@@ -518,13 +528,13 @@
           <div class="stage" id="house-stage">
             <span class="stage-tag">AI PHOTOS · DRAG TO SPIN</span>
             <div class="photo-focus" id="house-focus"><img class="scene-fallback" id="house-fallback" src="cascade-assets/cascade-exterior.webp" alt="AI-generated illustration of a green Seattle craftsman house with a new cedar porch, the kind of home Cascade works on." width="1024" height="1024">
-            <img class="spin-frame" src="cascade-assets/cascade-spin-045.webp" alt="" aria-hidden="true" draggable="false">
-            <img class="spin-frame" src="cascade-assets/cascade-spin-090.webp" alt="" aria-hidden="true" draggable="false">
-            <img class="spin-frame" src="cascade-assets/cascade-spin-135.webp" alt="" aria-hidden="true" draggable="false">
-            <img class="spin-frame" src="cascade-assets/cascade-spin-180.webp" alt="" aria-hidden="true" draggable="false">
-            <img class="spin-frame" src="cascade-assets/cascade-spin-225.webp" alt="" aria-hidden="true" draggable="false">
-            <img class="spin-frame" src="cascade-assets/cascade-spin-270.webp" alt="" aria-hidden="true" draggable="false">
-            <img class="spin-frame" src="cascade-assets/cascade-spin-315.webp" alt="" aria-hidden="true" draggable="false">
+            <img class="spin-frame" data-src="cascade-assets/cascade-spin-045.webp" alt="" aria-hidden="true" draggable="false">
+            <img class="spin-frame" data-src="cascade-assets/cascade-spin-090.webp" alt="" aria-hidden="true" draggable="false">
+            <img class="spin-frame" data-src="cascade-assets/cascade-spin-135.webp" alt="" aria-hidden="true" draggable="false">
+            <img class="spin-frame" data-src="cascade-assets/cascade-spin-180.webp" alt="" aria-hidden="true" draggable="false">
+            <img class="spin-frame" data-src="cascade-assets/cascade-spin-225.webp" alt="" aria-hidden="true" draggable="false">
+            <img class="spin-frame" data-src="cascade-assets/cascade-spin-270.webp" alt="" aria-hidden="true" draggable="false">
+            <img class="spin-frame" data-src="cascade-assets/cascade-spin-315.webp" alt="" aria-hidden="true" draggable="false">
             <button class="marker" type="button" data-part="roof" style="left:30%;top:25%" aria-label="Roof and gutters"><span></span></button>
             <button class="marker" type="button" data-part="windows" style="left:68%;top:29%" aria-label="Windows"><span></span></button>
             <button class="marker" type="button" data-part="door" style="left:33%;top:67%" aria-label="Front door"><span></span></button>
@@ -552,8 +562,8 @@
       <div class="wrap">
         <div class="section-head rv"><p class="eyebrow">Before / after</p><h2 id="ba-heading">Drag the handle. See the week&rsquo;s work.</h2><p>A tired kitchen on the left; the same room after a Cascade refresh on the right.</p></div>
         <div class="ba" id="ba">
-          <img src="cascade-assets/cascade-kitchen.webp" alt="AI-generated illustration of a renovated craftsman kitchen with evergreen cabinets, copper fixtures, and cream counters." width="1024" height="1024">
-          <div class="ba-before" id="ba-before"><img src="cascade-assets/cascade-kitchen-before.webp" alt="" aria-hidden="true"></div>
+          <img data-src="cascade-assets/cascade-kitchen.webp" alt="AI-generated illustration of a renovated craftsman kitchen with evergreen cabinets, copper fixtures, and cream counters." width="1024" height="1024">
+          <div class="ba-before" id="ba-before"><img data-src="cascade-assets/cascade-kitchen-before.webp" alt="" aria-hidden="true"></div>
           <span class="ba-tag before">BEFORE</span><span class="ba-tag after">AFTER</span>
           <div class="ba-handle" id="ba-handle"><span class="ba-grip" aria-hidden="true">&#8646;</span></div>
           <input type="range" id="ba-range" min="0" max="100" value="50" aria-label="Reveal the after photo">
@@ -581,7 +591,7 @@
           <div class="stage" id="room-stage">
             <span class="stage-tag">AI PHOTO · PICK A CABINET FINISH</span>
             <img class="scene-fallback room-photo is-on" id="room-photo-a" src="cascade-assets/cascade-kitchen.webp" alt="AI-generated illustration of a renovated craftsman kitchen; the cabinet finish changes as finishes are picked below." width="1280" height="853">
-            <img class="scene-fallback room-photo" id="room-photo-b" src="cascade-assets/cascade-kitchen-cream.webp" alt="" aria-hidden="true" width="1280" height="853">
+            <img class="scene-fallback room-photo" id="room-photo-b" data-src="cascade-assets/cascade-kitchen-cream.webp" alt="" aria-hidden="true" width="1280" height="853">
           </div>
           <div>
             <div class="swatch-group"><h3>Cabinets</h3><div class="swatches" data-group="cabinets">
@@ -1097,5 +1107,17 @@
       } catch (err) { /* static page remains */ }
     })();
   </script>
+
+<script>
+/* V25 — deferred image loader: spin frames and below-fold photos load just
+   after window load so they stop competing with the hero on slow networks. */
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    document.querySelectorAll('img[data-src]').forEach(function (im) {
+      if (!im.getAttribute('src')) im.src = im.getAttribute('data-src');
+    });
+  }, 400);
+});
+</script>
 </body>
 </html>
