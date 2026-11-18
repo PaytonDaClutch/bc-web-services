@@ -913,6 +913,39 @@
       .site-header { position: fixed; top: 0; left: 0; right: 0; }
       body { padding-top: 65px; }
     }
+  
+    /* V49 — phones: scroll-linked tilt off (it judders on touch scrolling). */
+    @media (pointer: coarse) {
+      .founder, .receipt, .contact-panel, .svc-panel, .hero-scene { transform: none !important; }
+    }
+
+    /* V49 — homepage teaser bubbles: animated, pop-out, tappable anywhere. */
+    #services-teaser .wrap, #concepts-teaser .wrap {
+      position: relative; cursor: pointer;
+      border: 1px solid color-mix(in srgb, var(--blue) 45%, var(--border));
+      border-radius: 28px;
+      background: radial-gradient(120% 140% at 12% 0%, color-mix(in srgb, var(--blue) 26%, transparent), transparent 55%), color-mix(in srgb, var(--ink) 88%, transparent);
+      box-shadow: 0 24px 60px #00000055, 0 0 44px color-mix(in srgb, var(--blue) 16%, transparent);
+      padding: clamp(26px, 4.5vw, 44px);
+      animation: bubble-float 5.5s ease-in-out infinite alternate;
+      transition: transform .35s var(--out), box-shadow .35s var(--out), border-color .35s var(--out);
+    }
+    #concepts-teaser .wrap { animation-delay: -2.7s; }
+    @keyframes bubble-float { from { translate: 0 0; } to { translate: 0 -6px; } }
+    #services-teaser .wrap:hover, #concepts-teaser .wrap:hover {
+      transform: translateY(-3px) scale(1.012);
+      border-color: color-mix(in srgb, var(--blue) 75%, #ffffff);
+      box-shadow: 0 34px 80px #00000066, 0 0 64px color-mix(in srgb, var(--blue) 30%, transparent);
+    }
+    #services-teaser .wrap:active, #concepts-teaser .wrap:active { transform: scale(.995); }
+    #services-teaser .wrap > p a.text-link::after,
+    #concepts-teaser .wrap > p a.text-link:first-child::after {
+      content: ""; position: absolute; inset: 0; border-radius: 28px;
+    }
+    #concepts-teaser .wrap > p a.text-link:not(:first-child) { position: relative; z-index: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      #services-teaser .wrap, #concepts-teaser .wrap { animation: none; }
+    }
   </style>
 </head>
 <body>

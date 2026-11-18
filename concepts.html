@@ -908,6 +908,11 @@
       .site-header { position: fixed; top: 0; left: 0; right: 0; }
       body { padding-top: 65px; }
     }
+  
+    /* V49 — phones: scroll-linked tilt off (it judders on touch scrolling). */
+    @media (pointer: coarse) {
+      .founder, .receipt, .contact-panel, .svc-panel, .hero-scene { transform: none !important; }
+    }
   </style>
 </head>
 <body>
