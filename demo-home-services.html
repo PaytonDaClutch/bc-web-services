@@ -497,7 +497,8 @@
     .marker { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
     .site-nav > a { padding-inline: 8px; }
   
-    /* V29 — redesign: before/after slider, gallery filters, ballpark estimator, 640w hero variant (2026-11-18)
+    /* V30 — reviews wall + booking flow (2026-11-18)
+   V29 — redesign: before/after slider, gallery filters, ballpark estimator, 640w hero variant (2026-11-18)
    V28 — mobile LCP: hero house preloaded + fetchpriority + 800w phone variant; lighter page-bg forest (PageSpeed mobile LCP was 5.1s)
    V27 — hero contrast over the forest photo (round-2 gate blocker: blurb 4.31:1, accent 2.96:1) */
     @media screen {
@@ -535,6 +536,23 @@
     .estimator-out { font-size: 19px; margin: 0; padding-bottom: 10px; }
     .estimator-out strong { color: var(--copper-dark); }
     .estimator-note { font-size: 14.5px; margin: 16px 0 0; }
+  
+    /* V30 — reviews wall + booking */
+    .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 22px; }
+    @media (max-width: 860px) { .review-grid { grid-template-columns: 1fr; } }
+    .review { margin: 0; background: #FFFDF8; border: 1px solid #D9C6A5; border-radius: 16px; padding: 22px; }
+    .review .stars { color: var(--copper-dark); font-size: 19px; letter-spacing: 3px; margin: 0 0 10px; }
+    .review p { font-size: 16.5px; line-height: 1.6; }
+    .review footer { margin-top: 14px; font-weight: 700; font-size: 15px; color: #5A4632; }
+    .sample-note { font-size: 14.5px; margin-top: 16px; }
+    .booking-copy { font-size: 17.5px; line-height: 1.6; max-width: 58ch; }
+    .booking-form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 22px; margin-top: 20px; max-width: 880px; }
+    @media (max-width: 700px) { .booking-form { grid-template-columns: 1fr; } }
+    .booking-windows { border: 0; padding: 0; margin: 0; grid-column: 1 / -1; }
+    .booking-windows legend { font-weight: 650; font-size: 15.5px; margin-bottom: 7px; padding: 0; }
+    .booking-submit { grid-column: 1 / -1; min-height: 52px; font-size: 17.5px; font-weight: 700; border: 0; border-radius: 12px; cursor: pointer; }
+    .booking-done { margin-top: 20px; background: #FFFDF8; border: 1px solid #D9C6A5; border-radius: 16px; padding: 24px; max-width: 880px; }
+    .booking-done h3 { margin-top: 0; }
   </style>
 </head>
 <body>
@@ -697,6 +715,18 @@
         </div>
       </div>
     </section>
+    <section class="section reviews" aria-labelledby="reviews-heading">
+      <div class="container">
+        <p class="kicker">Reviews</p>
+        <h2 id="reviews-heading">Neighbors who&rsquo;d hire us again</h2>
+        <div class="review-grid">
+          <blockquote class="review"><p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p><p>&ldquo;The kitchen refresh finished when they said it would, and the quote never moved. First contractor we&rsquo;ve had who texts back the same day.&rdquo;</p><footer>Dana W. — Ballard · Kitchen refresh</footer></blockquote>
+          <blockquote class="review"><p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p><p>&ldquo;They rehung three doors and fixed the bathroom tile in one visit. Fair price, tidy work, no upsell speech at the door.&rdquo;</p><footer>Marcus T. — Fremont · Doors &amp; bath</footer></blockquote>
+          <blockquote class="review"><p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p><p>&ldquo;Our porch went from scary to the best seat in the house. The crew treated the garden like it was theirs.&rdquo;</p><footer>Priya S. — Queen Anne · Porch rebuild</footer></blockquote>
+        </div>
+        <p class="sample-note">Sample reviews for this concept demo.</p>
+      </div>
+    </section>
     <section class="section cmp-section" aria-labelledby="cmp-heading">
       <div class="container">
         <p class="kicker">Before &amp; after</p>
@@ -767,6 +797,43 @@
     <section class="photo-band" aria-label="A Cascade porch at dusk">
       <img src="cascade-assets/cascade-porch-evening.webp" alt="AI-generated photo of a green craftsman house with a cedar porch, its windows glowing at dusk among misty evergreens." loading="lazy" width="1600" height="1066">
       <p class="band-note"><b>AI-generated photo</b> for this concept demo.</p>
+    </section>
+    <section class="section booking" aria-labelledby="booking-heading">
+      <div class="container">
+        <p class="kicker">Book a visit</p>
+        <h2 id="booking-heading">Pick a time — we&rsquo;ll bring the toolbox</h2>
+        <p class="booking-copy">Choose the job, a day, and a window. We confirm every visit by phone before we roll.</p>
+        <form class="booking-form" id="booking-form">
+          <label class="estimator-field">Job
+            <select id="book-job" required>
+              <option value="Kitchen or bath work">Kitchen or bath work</option>
+              <option value="Drywall patch">Drywall patch</option>
+              <option value="Faucet replacement">Faucet replacement</option>
+              <option value="Door rehang &amp; hardware">Door rehang &amp; hardware</option>
+              <option value="Toilet rebuild">Toilet rebuild</option>
+              <option value="Half-day handyman block">Half-day handyman block</option>
+              <option value="Something else">Something else</option>
+            </select>
+          </label>
+          <label class="estimator-field">Day
+            <input type="date" id="book-day" required>
+          </label>
+          <fieldset class="estimator-field booking-windows">
+            <legend>Time window</legend>
+            <div class="chip-row">
+              <button type="button" class="wchip book-win" data-win="Morning (8-11)" aria-pressed="true">Morning 8-11</button>
+              <button type="button" class="wchip book-win" data-win="Midday (11-2)" aria-pressed="false">Midday 11-2</button>
+              <button type="button" class="wchip book-win" data-win="Afternoon (2-5)" aria-pressed="false">Afternoon 2-5</button>
+            </div>
+          </fieldset>
+          <button type="submit" class="button-primary booking-submit">Request this visit</button>
+        </form>
+        <div class="booking-done" id="booking-done" hidden>
+          <h3>Request noted</h3>
+          <p id="booking-summary"></p>
+          <p>In this concept demo nothing is sent — a live Cascade site would confirm by phone. Want it sooner? <a href="tel:+18000000000">Call 1 (800) 000-0000</a>.</p>
+        </div>
+      </div>
     </section>
     <section class="section contact" id="contact" aria-labelledby="contact-heading">
       <div class="wrap contact-grid">
@@ -1253,6 +1320,36 @@ window.addEventListener('load', function () {
       qty.addEventListener('input', calc);
       calc();
     }
+  })();
+  </script>
+
+  <script>
+  /* V30 — booking flow: window chips + a confirm summary (concept demo: nothing is sent). */
+  (function () {
+    var form = document.getElementById('booking-form');
+    if (!form) return;
+    var win = 'Morning (8-11)';
+    document.querySelectorAll('.book-win').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        document.querySelectorAll('.book-win').forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+        chip.setAttribute('aria-pressed', 'true');
+        win = chip.getAttribute('data-win');
+      });
+    });
+    var day = document.getElementById('book-day');
+    var now = new Date();
+    var iso = function (d) { return d.toISOString().slice(0, 10); };
+    day.min = iso(now);
+    day.value = iso(now);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var job = document.getElementById('book-job').value;
+      var when = new Date(day.value + 'T12:00:00');
+      var label = when.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+      document.getElementById('booking-summary').textContent = job + ' — ' + label + ', ' + win + '. We will call to confirm before the visit.';
+      form.hidden = true;
+      document.getElementById('booking-done').hidden = false;
+    });
   })();
   </script>
 </body>
