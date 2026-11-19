@@ -939,6 +939,18 @@
     .beat-proof .text-link, .demo-point .text-link { min-height: 44px; }
     .price-table th a { display: inline-flex; align-items: center; min-height: 44px; }
     .site-nav .nav-cta { padding-left: 20px; padding-right: 20px; }
+
+    /* V61 — one filled CTA per view (Levi live sweep 2026-11-18, rule 6).
+       Phone (<=800): the header Email stays the one filled CTA; the menu's
+       "Discuss your website" copy is a ghost button. Open menu links stack. */
+    @media (max-width: 800px) {
+      .site-nav .nav-cta { background: transparent; color: var(--paper); border-color: var(--light-blue); box-shadow: none; }
+      .site-nav .nav-cta::after { display: none; }
+      .site-nav .nav-cta:hover { background: var(--panel-on-dark); color: var(--paper); border-color: var(--paper); box-shadow: none; text-decoration: none; }
+      .js .site-nav.is-open { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 0; }
+    }
+    /* Services: proof links and price-table links sit in tilting panels; 48px keeps them >=44px while tilted. */
+    .svc-panel .text-link, .price-table tbody th a { min-height: 48px; }
   </style>
 </head>
 <body>

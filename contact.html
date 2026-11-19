@@ -937,6 +937,30 @@
 
     /* V60 (gate round 3): nav CTA horizontal padding in the open menu */
     .site-nav .nav-cta { padding-left: 20px; padding-right: 20px; }
+
+    /* V61 — one filled CTA per view (Levi live sweep 2026-11-18, rule 6).
+       Phone (<=800): the header Email stays the one filled CTA; the menu's
+       "Discuss your website" copy is a ghost button. Open menu links stack. */
+    @media (max-width: 800px) {
+      .site-nav .nav-cta { background: transparent; color: var(--paper); border-color: var(--light-blue); box-shadow: none; }
+      .site-nav .nav-cta::after { display: none; }
+      .site-nav .nav-cta:hover { background: var(--panel-on-dark); color: var(--paper); border-color: var(--paper); box-shadow: none; text-decoration: none; }
+      .js .site-nav.is-open { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 0; }
+    }
+    /* Contact: the panel's email button is the page's one filled CTA, so header
+       CTAs are ghosts. With the phone menu open (or no JS, where the menu is always
+       shown) the header Email fills and the panel button goes quiet. */
+    .site-header .header-email, .site-nav .nav-cta { background: transparent; color: var(--paper); border-color: var(--light-blue); box-shadow: none; }
+    .site-header .header-email::after, .site-nav .nav-cta::after { display: none; }
+    .site-header .header-email:hover, .site-nav .nav-cta:hover { background: var(--panel-on-dark); color: var(--paper); border-color: var(--paper); box-shadow: none; text-decoration: none; }
+    @media (max-width: 800px) {
+      .site-header .header-call { background: transparent; color: var(--paper); border-color: var(--light-blue); box-shadow: none; }
+      .site-header .header-call:hover { background: var(--panel-on-dark); color: var(--paper); border-color: var(--paper); box-shadow: none; text-decoration: none; }
+      .js .site-nav.is-open ~ .header-call, html:not(.js) .site-header .header-call { background: var(--blue); color: var(--paper); border-color: var(--blue); }
+      .js .site-nav.is-open ~ .header-call:hover, html:not(.js) .site-header .header-call:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
+      html.js:has(#main-nav.is-open) main .button-primary, html:not(.js) main .button-primary { background: transparent; color: var(--paper); border-color: var(--light-blue); box-shadow: none; }
+      html.js:has(#main-nav.is-open) main .button-primary::after, html:not(.js) main .button-primary::after { display: none; }
+    }
   </style>
 </head>
 <body>
