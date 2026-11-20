@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ECO Landscaping LLC — Concept Demo by B&amp;C Web Services</title>
+<meta name="description" content="Concept demo for ECO Landscaping LLC, a family-owned lawn care, landscape installation, and hardscape company serving King and Pierce Counties. Built by B&amp;C Web Services from publicly published company details. Not ECO Landscaping's live website.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1A2E22">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect fill='%231A2E22' width='64' height='64'/%3E%3Ctext x='32' y='44' text-anchor='middle' fill='%23F4F1EA' font-family='Georgia,serif' font-size='22' font-weight='700'%3EECO%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --lime:#F4F1EA;--stone:#EAE5DA;--card:#FBF8F2;
+  --ink:#1A2E22;--muted:#3D4F44;--line:#C9C2B3;
+  --moss:#3B6247;--cedar:#A65E3A;--cedar-ink:#8B4A2E;
+  --on-cedar:#FFFFFF;--deep:#1A2E22;--deep-text:#F4F1EA;--deep-muted:#C2CDC0;
+  --head:"Libre Caslon Text","Iowan Old Style","Palatino Linotype",Palatino,P052,"EB Garamond","Source Serif Pro","Noto Serif Display",Georgia,"Times New Roman",serif;
+  --sans:"Albert Sans","Gothic A1","URW Gothic",Futura,"Century Gothic","Tw Cen MT","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --gutter:clamp(20px,4.5vw,64px);--max:1180px;
+  --demo-h:44px;--header-h:72px;
+  --ease:cubic-bezier(.22,.7,.25,1);
+  --focus:0 0 0 3px var(--lime),0 0 0 6px var(--cedar-ink);
+  --focus-dark:0 0 0 3px var(--deep),0 0 0 6px #E2C7B6;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--demo-h) + var(--header-h) + 12px);scroll-behavior:auto;overflow-x:clip}
+body{margin:0;background:var(--lime);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.7;overflow-x:clip;text-rendering:optimizeLegibility;-webkit-text-size-adjust:100%}
+img,svg{max-width:100%;height:auto;display:block}
+a{color:var(--cedar-ink);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--ink)}
+:focus-visible{outline:3px solid var(--cedar-ink);outline-offset:3px;box-shadow:none}
+.skip{position:absolute;left:12px;top:-80px;z-index:200;background:var(--ink);color:var(--deep-text);padding:10px 16px;min-height:44px;font-weight:700;text-decoration:none}
+.skip:focus{top:calc(var(--demo-h) + 8px)}
+.wrap{width:min(100% - 2*var(--gutter),var(--max));margin-inline:auto}
+.eyebrow{display:block;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--moss);margin:0 0 .75rem}
+.kicker{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+
+/* Demo bar */
+.demo-bar{position:sticky;top:0;z-index:80;min-height:var(--demo-h);background:var(--ink);color:var(--deep-text);font-size:14.5px;line-height:1.45;padding:8px var(--gutter)}
+.demo-bar p{margin:0 auto;width:min(100%,var(--max));font-weight:650}
+.demo-bar strong{font-weight:700;color:#fff}
+
+/* Header */
+.site-header{position:sticky;top:var(--demo-h);z-index:70;background:rgba(244,241,234,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.site-header .bar{width:min(100% - 2*var(--gutter),var(--max));margin:0 auto;min-height:var(--header-h);display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);min-height:44px;flex:0 0 auto}
+.brand-mark{width:40px;height:40px;flex:0 0 40px}
+.brand-name{display:flex;flex-direction:column;line-height:1.15}
+.brand-name em{font-family:var(--head);font-style:normal;font-weight:700;font-size:1.15rem;letter-spacing:.01em}
+.brand-name span{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+nav.primary{margin-left:auto;display:flex;align-items:center;gap:4px}
+nav.primary a{display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;text-decoration:none;color:var(--ink);font-weight:650;font-size:16px}
+nav.primary a:hover{color:var(--cedar-ink)}
+nav.primary a.btn{color:#fff;font-weight:700}
+nav.primary a.btn:hover{background:var(--cedar-ink);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;min-width:44px;padding:10px 18px;border:1px solid transparent;font:inherit;font-weight:700;font-size:16px;line-height:1.2;text-decoration:none;cursor:pointer;color:var(--on-cedar);background:var(--cedar);border-radius:2px}
+.btn:hover{background:var(--cedar-ink);color:#fff}
+.btn:focus-visible{outline:3px solid var(--cedar-ink);outline-offset:3px}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--deep-text)}
+.btn-light{background:var(--lime);color:var(--ink);border-color:transparent}
+.btn-light:hover{background:#fff;color:var(--ink)}
+.hdr-call{margin-left:8px}
+.menu-toggle{display:none;margin-left:auto;background:transparent;border:1px solid var(--ink);color:var(--ink);min-width:44px;min-height:44px;padding:0;cursor:pointer;border-radius:2px}
+.menu-toggle svg{margin:auto;width:22px;height:22px}
+
+/* Hero */
+.hero{padding:clamp(20px,3.5vw,56px) 0 clamp(28px,4vw,48px);background:
+  linear-gradient(180deg,var(--stone) 0%,var(--lime) 100%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,64px);align-items:center}
+.hero h1{font-family:var(--head);font-weight:700;font-size:clamp(1.85rem,4.2vw,3.7rem);line-height:1.12;letter-spacing:-.02em;margin:0 0 .75rem;max-width:18ch}
+.lead{font-size:20px;line-height:1.65;margin:0 0 1rem;color:var(--ink);max-width:38rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 10px;margin:0 0 1rem}
+.chip{display:inline-flex;align-items:center;min-height:32px;padding:4px 10px;background:var(--card);border:1px solid var(--line);font-size:14.5px;font-weight:650;color:var(--ink);border-radius:2px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 .85rem}
+.hero-hours{margin:0;color:var(--ink);font-size:18px;font-weight:650}
+.hero-hours strong{color:var(--ink);font-weight:700}
+.hero-frame{background:var(--card);border:1px solid var(--line);padding:18px 18px 14px;box-shadow:6px 8px 0 var(--stone)}
+.hero-frame figcaption{margin-top:10px;font-size:14.5px;color:var(--muted);font-weight:650}
+.hero-svg{width:100%;height:auto;aspect-ratio:5/4}
+
+/* Ticker */
+.ticker{border-block:1px solid var(--line);background:var(--card);overflow:hidden;padding:10px 0}
+.ticker-track{display:flex;gap:2.5rem;width:max-content;font-size:14.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--moss);padding-inline:var(--gutter)}
+.eco-on:not(.rm) .ticker-track{animation:tick 36s linear infinite}
+.eco-on:not(.rm) .ticker:hover .ticker-track,.eco-on:not(.rm) .ticker:focus-within .ticker-track{animation-play-state:paused}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* Sections */
+section{padding:clamp(56px,8vw,96px) 0}
+.sec-head{max-width:40rem;margin-bottom:2rem}
+.sec-head h2{font-family:var(--head);font-size:clamp(2rem,3.4vw,3.15rem);line-height:1.15;letter-spacing:-.02em;margin:0 0 .75rem}
+.sec-head p{margin:0;color:var(--ink)}
+.deep{background:var(--deep);color:var(--deep-text)}
+.deep .eyebrow{color:#C9A894}
+.deep a{color:#F0D6C8}
+.deep a:hover{color:#fff}
+.deep .sec-head p,.deep p{color:var(--deep-muted)}
+.deep h2,.deep h3{color:var(--deep-text)}
+.stone{background:var(--stone)}
+
+/* Planner */
+.planner-shell{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.9fr);gap:28px;align-items:start}
+.scope-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.scope-tabs label{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-weight:700;font-size:14.5px;cursor:pointer;border-radius:2px}
+.scope-tabs label:focus-within{outline:3px solid var(--cedar-ink);outline-offset:3px}
+.scope-tabs input{position:absolute;width:1px;height:1px;margin:0;overflow:hidden;clip:rect(0 0 0 0);opacity:0}
+.scope-tabs label:has(input:checked){background:var(--ink);color:var(--deep-text);border-color:var(--ink)}
+.scope-tabs label:has(input:checked) input{accent-color:var(--lime)}
+.plan-board{background:var(--card);border:1px solid var(--line);padding:16px}
+.plan-svg{width:100%;height:auto;aspect-ratio:800/560}
+.plan-svg .zone{transition:opacity .35s var(--ease),filter .35s var(--ease)}
+.planner:has(#scope-lawn:checked) .zone:not(.zone-lawn){opacity:.38}
+.planner:has(#scope-install:checked) .zone:not(.zone-install){opacity:.38}
+.planner:has(#scope-hard:checked) .zone:not(.zone-hard){opacity:.38}
+.planner:has(#scope-irrig:checked) .zone:not(.zone-irrig){opacity:.38}
+.planner:has(#scope-winter:checked) .zone:not(.zone-winter){opacity:.38}
+.planner:has(#scope-commercial:checked) .zone:not(.zone-commercial){opacity:.42}
+.cut-svg{width:100%;height:auto;margin-top:12px;aspect-ratio:800/150}
+.scope-cards{display:grid;gap:12px}
+.scope-card{background:var(--card);border:1px solid var(--line);padding:8px 18px 16px}
+.scope-card summary{font-family:var(--head);font-size:1.45rem;line-height:1.2;margin:0;padding:10px 0;cursor:pointer;list-style:none;min-height:44px;display:flex;align-items:center}
+.scope-card summary::-webkit-details-marker{display:none}
+.scope-card summary::after{content:"";width:10px;height:10px;margin-left:auto;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);flex:0 0 10px}
+.scope-card[open] summary::after{transform:rotate(225deg)}
+.scope-card ul{margin:.4rem 0 .8rem;padding:0 0 0 1.1rem}
+.scope-card li{margin:0 0 .25rem}
+.placeholder{margin:0;padding:10px 12px;background:#F3E6DC;border-left:3px solid var(--cedar-ink);font-size:18px;color:var(--ink);font-weight:650}
+.planner:has(#scope-lawn:checked) [data-panel=lawn],
+.planner:has(#scope-install:checked) [data-panel=install],
+.planner:has(#scope-hard:checked) [data-panel=hard],
+.planner:has(#scope-irrig:checked) [data-panel=irrig],
+.planner:has(#scope-winter:checked) [data-panel=winter],
+.planner:has(#scope-commercial:checked) [data-panel=commercial]{border-color:var(--ink);box-shadow:4px 4px 0 var(--stone)}
+
+/* Services */
+.svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.svc{background:var(--card);border:1px solid var(--line);padding:22px 22px 20px;display:flex;flex-direction:column;min-height:100%;text-decoration:none;color:var(--ink)}
+.svc:hover{border-color:var(--ink)}
+.svc h3{font-family:var(--head);font-size:1.5rem;line-height:1.2;margin:0 0 .5rem}
+.svc p{margin:0 0 1rem;flex:1}
+.svc span{font-size:14.5px;font-weight:700;color:var(--cedar-ink)}
+
+/* About / quote */
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
+blockquote{margin:0;padding:0;font-family:var(--head);font-size:clamp(1.55rem,2.4vw,2.05rem);line-height:1.35;color:var(--deep-text)}
+blockquote cite{display:block;margin-top:1rem;font-family:var(--sans);font-size:16px;font-style:normal;font-weight:700;color:#C9A894;letter-spacing:.04em}
+.about-copy h2{font-family:var(--head);font-size:clamp(2rem,3.2vw,3rem);line-height:1.15;margin:0 0 1rem}
+.about-copy p{margin:0 0 1rem}
+
+/* Work placeholders */
+.work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+figure.ph{margin:0;background:var(--card);border:1px solid var(--line)}
+.ph-art{aspect-ratio:4/3;background:var(--stone);display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;font-size:14.5px;font-weight:700;color:var(--ink)}
+figure.ph figcaption{padding:14px 16px 16px}
+figure.ph h3{font-family:var(--head);font-size:1.25rem;margin:0 0 .35rem}
+figure.ph p{margin:0;font-size:16px}
+
+/* Area */
+.area-list{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.area-list a,.area-list span{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border:1px solid var(--line);background:var(--card);color:var(--ink);text-decoration:none;font-weight:700}
+.area-list a:hover{border-color:var(--ink)}
+.area-note{margin:1.25rem 0 0;max-width:42rem}
+
+/* Estimate */
+.est-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:28px;align-items:start}
+form.est{background:var(--card);border:1px solid var(--line);padding:22px}
+.field{margin:0 0 14px}
+.field label,.field .lbl{display:block;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px}
+.req{color:var(--cedar-ink)}
+.opt{font-weight:650;letter-spacing:.04em;text-transform:none;color:var(--muted);font-size:14.5px}
+input[type=text],input[type=email],input[type=tel],select,textarea{
+  width:100%;min-height:44px;padding:10px 12px;border:1px solid #A89F8E;background:#fff;color:var(--ink);
+  font:inherit;font-size:18px;border-radius:2px}
+textarea{min-height:110px;resize:vertical;line-height:1.5}
+.form-note,.preview-note{font-size:16px;color:var(--muted);margin:.5rem 0 0}
+.ticket{background:var(--lime);border:1px solid var(--line);padding:22px;min-height:100%}
+.ticket h3{font-family:var(--head);font-size:1.5rem;margin:0 0 .75rem}
+.ticket dl{margin:0;display:grid;grid-template-columns:8.5rem 1fr;gap:6px 12px}
+.ticket dt{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--moss);padding-top:4px}
+.ticket dd{margin:0;font-weight:650}
+.success{display:none;margin-top:14px;padding:12px 14px;background:#E4EDE4;border-left:3px solid var(--moss);font-weight:650}
+.success.show{display:block}
+
+/* Footer */
+footer{background:var(--deep);color:var(--deep-text);padding:48px 0 calc(48px + var(--bar-space,0px));border-top:4px solid var(--cedar)}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
+footer h2,footer h3{font-family:var(--head);font-size:1.35rem;margin:0 0 .75rem;color:#fff}
+footer p,footer li{color:var(--deep-muted)}
+footer ul{margin:0;padding:0;list-style:none}
+footer li{margin:0 0 .35rem}
+footer a,.about-copy a,.form-note a,.area-note a{display:inline-flex;align-items:center;min-height:44px}
+footer a{color:#F0D6C8;min-width:44px}
+footer a:hover{color:#fff}
+.note,.legal,.demo-bar p,figure.ph figcaption p,.hero-frame figcaption{font-size:16px;line-height:1.65}
+.legal{margin-top:28px;padding-top:18px;border-top:1px solid #2C4638;font-size:16px;color:var(--deep-muted)}
+.legal p{margin:0 0 .6rem}
+
+/* Sticky call bar (mobile) */
+.callbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);color:var(--deep-text);
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));transform:translateY(0);transition:transform .28s var(--ease);
+  border-top:1px solid #2C4638}
+.callbar.is-tucked{transform:translateY(110%)}
+.callbar .inner{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.callbar .btn{width:100%}
+@media (max-width:800px){
+  :root{--bar-space:calc(68px + env(safe-area-inset-bottom,0px))}
+  body{padding-bottom:var(--bar-space)}
+  .hero{padding-bottom:calc(20px + var(--bar-space))}
+  .callbar{display:block}
+  .menu-toggle{display:inline-flex}
+  nav.primary{display:none;position:absolute;left:0;right:0;top:100%;background:var(--lime);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;padding:8px var(--gutter) 16px;gap:0}
+  nav.primary.is-open{display:flex}
+  nav.primary a,.hdr-call{width:100%;justify-content:flex-start;margin:0}
+  .hdr-call{margin-top:8px}
+  .hero-grid,.planner-shell,.svc-grid,.about-grid,.work-grid,.est-grid,.foot-grid{grid-template-columns:1fr}
+  .svc-grid,.work-grid{grid-template-columns:1fr 1fr}
+  .hero h1{max-width:none}
+  .ticket dl{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .svc-grid,.work-grid{grid-template-columns:1fr}
+  .hero-frame{box-shadow:4px 5px 0 var(--stone);padding:12px}
+  .brand-name span{display:none}
+  .lead{font-size:18px}
+  .hero{padding-top:12px}
+  .hero h1{font-size:clamp(1.7rem,9vw,2.2rem)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .callbar{transition:none}
+}
+.eco-on:not(.rm) .reveal{opacity:0;transform:translateY(16px)}
+.eco-on:not(.rm) .reveal.in{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .7s var(--ease)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<aside class="demo-bar" role="note">
+  <p class="note"><strong>Concept demo.</strong> Built for ECO Landscaping LLC by B&amp;C Web Services. This is not ECO Landscaping’s live website.</p>
+</aside>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="#top" id="top">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <rect width="40" height="40" fill="#1A2E22"/>
+        <path d="M8 30 L14 16 L20 28 L26 14 L32 30" fill="none" stroke="#C9A894" stroke-width="1.6"/>
+        <circle cx="20" cy="11" r="2.2" fill="#3B6247"/>
+      </svg>
+      <span class="brand-name"><em>ECO Landscaping</em><span>LLC · Tacoma, WA</span></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" id="menu-btn" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="primary" id="site-nav" aria-label="Primary">
+      <a href="#planner">Scope planner</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#area">Service area</a>
+      <a href="#estimate">Estimate</a>
+      <a class="btn hdr-call" href="tel:+12532674611">Call (253) 267-4611</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="hero" id="home" aria-labelledby="hero-h">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Family-owned, founded 2017</p>
+        <h1 id="hero-h">Lawn care and hardscape installation for King and Pierce Counties.</h1>
+        <p class="lead">ECO Landscaping LLC has a full range of landscaping maintenance, design and installation services. Our commercial landscaping company can build a landscape your visitors will love and keep your lawn green in the summer.</p>
+        <div class="hero-actions">
+          <a class="btn hero-cta" href="tel:+12532674611">Call or text (253) 267-4611</a>
+          <a class="btn btn-ghost" href="#estimate">Request an estimate</a>
+        </div>
+        <p class="hero-hours"><strong>Hours:</strong> 8:00am–5:00pm Monday–Saturday. Sunday closed. Estimates are free; a site evaluation can be scheduled at no charge.</p>
+        <div class="hero-meta" aria-label="Published service area">
+          <span class="chip">Lakewood</span><span class="chip">Tacoma</span><span class="chip">Steilacoom</span><span class="chip">University Place</span><span class="chip">Gig Harbor</span><span class="chip">Puyallup</span><span class="chip">Dupont</span><span class="chip">Federal Way</span><span class="chip">Auburn</span><span class="chip">Lacey</span><span class="chip">Seattle</span>
+        </div>
+      </div>
+      <figure class="hero-frame">
+        <svg class="hero-svg" viewBox="0 0 500 400" role="img" aria-labelledby="hero-svg-title">
+          <title id="hero-svg-title">Stylized yard elevation: house, lawn, plant beds, walkway, and patio</title>
+          <rect width="500" height="400" fill="#EAE5DA"/>
+          <rect x="0" y="250" width="500" height="150" fill="#3B6247"/>
+          <rect x="0" y="250" width="500" height="18" fill="#2F5139"/>
+          <path d="M70 250 L160 150 L250 250 Z" fill="#1A2E22"/>
+          <rect x="100" y="190" width="120" height="60" fill="#24382C"/>
+          <rect x="148" y="214" width="28" height="36" fill="#EAE5DA"/>
+          <rect x="118" y="204" width="22" height="18" fill="#C9D2C6"/>
+          <rect x="182" y="204" width="22" height="18" fill="#C9D2C6"/>
+          <rect x="270" y="222" width="150" height="28" fill="#A65E3A"/>
+          <rect x="278" y="228" width="134" height="16" fill="#8B4A2E"/>
+          <path d="M40 250 C40 210, 80 210, 80 250" fill="#1A2E22"/>
+          <path d="M300 250 C300 200, 360 200, 360 250" fill="#1A2E22"/>
+          <path d="M400 250 C400 215, 445 218, 445 250" fill="#2F5139"/>
+          <rect x="160" y="250" width="36" height="70" fill="#D7C4A8"/>
+          <circle cx="430" cy="310" r="14" fill="#8B4A2E"/>
+          <circle cx="430" cy="310" r="6" fill="#EAE5DA"/>
+          <path d="M20 330 h80 M20 350 h120 M20 370 h60" stroke="#C9D2C6" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <figcaption>A concept yard elevation for this demo — not a photograph of a client property.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="ticker" aria-label="Published services">
+    <div class="ticker-track">
+      <span>Mowing</span><span>Trimming</span><span>Edging</span><span>Leaf blowing</span><span>Plant beds</span><span>Sod installation</span><span>Bark &amp; mulch</span><span>Paver patios</span><span>Walkways</span><span>Retaining walls</span><span>Firepits</span><span>Irrigation</span><span>Spring start-up</span><span>Winterization</span><span>Tree pruning</span><span>HOA &amp; commercial</span>
+      <span>Mowing</span><span>Trimming</span><span>Edging</span><span>Leaf blowing</span><span>Plant beds</span><span>Sod installation</span><span>Bark &amp; mulch</span><span>Paver patios</span><span>Walkways</span><span>Retaining walls</span><span>Firepits</span><span>Irrigation</span><span>Spring start-up</span><span>Winterization</span><span>Tree pruning</span><span>HOA &amp; commercial</span>
+    </div>
+  </div>
+
+  <section id="planner" class="planner-sec" aria-labelledby="planner-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Yard &amp; Hardscape Scope Planner</span>
+        <h2 id="planner-h">Switch a scope. The plan, the cut, and the work list move with it.</h2>
+        <p>Every deliverable below is taken from ECO Landscaping LLC’s published service pages. Timeline and dollar figures are clearly marked placeholders — not quotes.</p>
+      </div>
+      <div class="planner" id="planner-widget">
+        <div class="scope-tabs" role="group" aria-label="Published service scopes">
+          <label><input type="radio" name="scope" id="scope-lawn" value="lawn" checked> Lawn care</label>
+          <label><input type="radio" name="scope" id="scope-install" value="install"> Installation</label>
+          <label><input type="radio" name="scope" id="scope-hard" value="hard"> Hardscapes</label>
+          <label><input type="radio" name="scope" id="scope-irrig" value="irrig"> Irrigation</label>
+          <label><input type="radio" name="scope" id="scope-winter" value="winter"> Winter</label>
+          <label><input type="radio" name="scope" id="scope-commercial" value="commercial"> Commercial &amp; HOA</label>
+        </div>
+        <div class="planner-shell">
+          <div class="plan-board">
+            <svg class="plan-svg" viewBox="0 0 800 560" role="img" aria-labelledby="plan-title">
+              <title id="plan-title">Interactive top-down property plan. Highlighted zones change with the selected scope.</title>
+              <rect width="800" height="560" fill="#E6E0D2"/>
+              <rect class="zone zone-commercial" x="0" y="500" width="800" height="60" fill="#4A4740"/>
+              <text x="24" y="536" font-size="14" font-weight="700" fill="#F4F1EA" font-family="system-ui,sans-serif">STREET</text>
+              <rect class="zone zone-commercial" x="0" y="478" width="800" height="22" fill="#C9C2B3"/>
+              <rect class="zone zone-lawn" x="40" y="210" width="720" height="268" fill="#3B6247"/>
+              <path class="zone zone-hard zone-install" d="M360 478 V300 H440 V478 Z" fill="#C4B49A"/>
+              <rect class="zone zone-commercial" x="250" y="70" width="300" height="150" fill="#1A2E22"/>
+              <polygon class="zone zone-commercial" points="240,70 400,18 560,70" fill="#24382C"/>
+              <rect x="370" y="160" width="36" height="60" fill="#EAE5DA"/>
+              <rect x="290" y="110" width="40" height="32" fill="#C2CDC0"/>
+              <rect x="470" y="110" width="40" height="32" fill="#C2CDC0"/>
+              <rect class="zone zone-hard" x="500" y="230" width="200" height="110" fill="#A65E3A"/>
+              <rect class="zone zone-hard" x="512" y="242" width="176" height="86" fill="#8B4A2E"/>
+              <circle class="zone zone-hard" cx="600" cy="285" r="16" fill="#EAE5DA"/>
+              <circle class="zone zone-hard" cx="600" cy="285" r="7" fill="#1A2E22"/>
+              <rect class="zone zone-hard zone-install" x="40" y="300" width="70" height="160" fill="#8B4A2E"/>
+              <path class="zone zone-install zone-winter" d="M90 210 C90 150 150 150 150 210" fill="#1A2E22"/>
+              <path class="zone zone-install zone-winter" d="M200 210 C200 155 255 148 260 210" fill="#24382C"/>
+              <path class="zone zone-install zone-winter" d="M620 210 C620 140 710 145 720 210" fill="#1A2E22"/>
+              <path class="zone zone-install" d="M60 250 h160 v40 h-160 z" fill="#2F5139"/>
+              <path class="zone zone-install" d="M580 210 h160 v36 h-160 z" fill="#2F5139"/>
+              <path class="zone zone-irrig" d="M80 400 C200 360, 320 440, 440 380 S 680 420, 740 360" fill="none" stroke="#C9E0D4" stroke-width="3" stroke-dasharray="8 7"/>
+              <path class="zone zone-irrig" d="M120 300 C220 280, 340 320, 480 290 S 680 310, 720 270" fill="none" stroke="#C9E0D4" stroke-width="3" stroke-dasharray="8 7"/>
+              <circle class="zone zone-irrig" cx="160" cy="385" r="5" fill="#F4F1EA"/>
+              <circle class="zone zone-irrig" cx="320" cy="405" r="5" fill="#F4F1EA"/>
+              <circle class="zone zone-irrig" cx="500" cy="370" r="5" fill="#F4F1EA"/>
+              <circle class="zone zone-irrig" cx="680" cy="355" r="5" fill="#F4F1EA"/>
+              <text x="70" y="430" font-size="14" font-weight="700" fill="#F4F1EA" font-family="system-ui,sans-serif">LAWN</text>
+              <text x="530" y="268" font-size="14" font-weight="700" fill="#FFFFFF" font-family="system-ui,sans-serif">PATIO</text>
+              <text x="80" y="275" font-size="14" font-weight="700" fill="#C9D2C6" font-family="system-ui,sans-serif">BEDS</text>
+            </svg>
+            <svg class="cut-svg" viewBox="0 0 800 150" role="img" aria-labelledby="cut-title">
+              <title id="cut-title">Property cross-section. Layers change with the selected scope.</title>
+              <rect width="800" height="150" fill="#F4F1EA"/>
+              <rect x="0" y="90" width="800" height="60" fill="#6B4F35"/>
+              <rect class="zone zone-lawn zone-install" x="0" y="70" width="800" height="22" fill="#3B6247"/>
+              <rect class="zone zone-hard" x="420" y="62" width="220" height="16" fill="#A65E3A"/>
+              <path class="zone zone-irrig" d="M80 96 H720" stroke="#C9E0D4" stroke-width="4"/>
+              <circle class="zone zone-irrig" cx="200" cy="96" r="6" fill="#1A2E22"/>
+              <circle class="zone zone-irrig" cx="400" cy="96" r="6" fill="#1A2E22"/>
+              <circle class="zone zone-irrig" cx="600" cy="96" r="6" fill="#1A2E22"/>
+              <path class="zone zone-winter zone-install" d="M140 70 C140 20 200 20 200 70" fill="#1A2E22"/>
+              <path class="zone zone-winter" d="M0 28 Q 200 50 400 22 T 800 36" fill="none" stroke="#D9E3F0" stroke-width="6" opacity=".85"/>
+              <text x="16" y="140" font-size="14" font-weight="700" fill="#F4F1EA" font-family="system-ui,sans-serif">CROSS-SECTION · soil · turf · hardscape · irrigation line</text>
+            </svg>
+          </div>
+          <div class="scope-cards">
+            <details class="scope-card" data-panel="lawn" data-for="scope-lawn" open>
+              <summary>Lawn care</summary>
+              <div class="detail">
+                <ul>
+                  <li>Mowing — clippings and debris removed, unless otherwise specified</li>
+                  <li>Edging of curbs and walkways</li>
+                  <li>Line trimming of high spots not reachable by mowers</li>
+                  <li>Leaf blowing on walkways, entryways, breezeways, and hardscapes</li>
+                  <li>Bed maintenance and hedge or shrub pruning to a natural shape</li>
+                  <li>Tree beds kept free of weeds by manual removal; debris hauled away</li>
+                </ul>
+                <p class="placeholder">[Placeholder — Sample estimate range only — confirm with ECO Landscaping LLC]</p>
+                <p class="placeholder" style="margin-top:8px">[Placeholder — Sample maintenance timeline only — confirm with ECO Landscaping LLC]</p>
+              </div>
+            </details>
+            <details class="scope-card" data-panel="install" data-for="scope-install" open>
+              <summary>Landscape installation</summary>
+              <div class="detail">
+                <ul>
+                  <li>Plant bed design and installation</li>
+                  <li>Sod installation, with sod delivered from local providers including Country Green Turf farms</li>
+                  <li>Mulch placement and bark replenishment (including Double Grind Fine Bark of hemlock and fir, their preferred bark)</li>
+                  <li>Grass seeding, and hydro-seed in collaboration with Country Green</li>
+                  <li>Walkways, garden bed maintenance, shrub trimming and removal, tree pruning</li>
+                  <li>Wood fence installation</li>
+                  <li>Pest extermination or repellant, as listed on their installation page</li>
+                </ul>
+                <p class="placeholder">[Placeholder — Sample estimate range only — confirm with ECO Landscaping LLC]</p>
+                <p class="placeholder" style="margin-top:8px">[Placeholder — Sample install timeline only — confirm with ECO Landscaping LLC]</p>
+              </div>
+            </details>
+            <details class="scope-card" data-panel="hard" data-for="scope-hard" open>
+              <summary>Hardscapes</summary>
+              <div class="detail">
+                <ul>
+                  <li>Paver patios and walkways</li>
+                  <li>Retaining walls</li>
+                  <li>Outdoor fireplace / firepits</li>
+                  <li>Local material options as published: drain rock, decorative rock, and pea gravel</li>
+                </ul>
+                <p class="placeholder">[Placeholder — Sample estimate range only — confirm with ECO Landscaping LLC]</p>
+                <p class="placeholder" style="margin-top:8px">[Placeholder — Sample hardscape timeline only — confirm with ECO Landscaping LLC]</p>
+              </div>
+            </details>
+            <details class="scope-card" data-panel="irrig" data-for="scope-irrig" open>
+              <summary>Irrigation</summary>
+              <div class="detail">
+                <ul>
+                  <li>Installation and maintenance, including repairs</li>
+                  <li>Drip zones and head-to-head coverage on all zones</li>
+                  <li>A customized watering schedule and controller programming for proper delivery times</li>
+                  <li>Regular monitoring and adjustment — irrigation is not needed in Pacific Northwest winter months</li>
+                  <li>Spring start-up and fall winterizing, scheduled with the customer</li>
+                </ul>
+                <p class="placeholder">[Placeholder — Sample estimate range only — confirm with ECO Landscaping LLC]</p>
+                <p class="placeholder" style="margin-top:8px">[Placeholder — Sample irrigation timeline only — confirm with ECO Landscaping LLC]</p>
+              </div>
+            </details>
+            <details class="scope-card" data-panel="winter" data-for="scope-winter" open>
+              <summary>Winter services</summary>
+              <div class="detail">
+                <ul>
+                  <li>Pruning for deciduous trees; pruning flowering trees to support flowering months</li>
+                  <li>Tree pruning is normally once or twice a year, between December and January, with debris removed</li>
+                  <li>Irrigation blow-out / weatherization to help reduce freeze damage and burst pipes</li>
+                  <li>Sand and salt spreading for larger areas, with smaller areas included when preferred</li>
+                </ul>
+                <p class="placeholder">[Placeholder — Sample estimate range only — confirm with ECO Landscaping LLC]</p>
+                <p class="placeholder" style="margin-top:8px">[Placeholder — Sample seasonal timeline only — confirm with ECO Landscaping LLC]</p>
+              </div>
+            </details>
+            <details class="scope-card" data-panel="commercial" data-for="scope-commercial" open>
+              <summary>Commercial &amp; HOA</summary>
+              <div class="detail">
+                <ul>
+                  <li>HOA lawn care contracts and a complete landscape maintenance package for property managers who want one company for a variety of services</li>
+                  <li>Care of trees and shrubs for smaller commercial and HOA properties in Tacoma and surrounding areas</li>
+                  <li>Plant bed layout and installation, sod, bark replenishment, lawn care, patios, retaining walls, irrigation repair and installation, fence installation and repairs, and grass seeding</li>
+                  <li>Their first contract, as published, was with an apartment complex</li>
+                </ul>
+                <p class="placeholder">[Placeholder — Sample estimate range only — confirm with ECO Landscaping LLC]</p>
+                <p class="placeholder" style="margin-top:8px">[Placeholder — Sample contract timeline only — confirm with ECO Landscaping LLC]</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="stone" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">The work</span>
+        <h2 id="svc-h">Lawn care, installation, hardscape, and irrigation — residential and commercial.</h2>
+        <p>Copied from ECO Landscaping LLC’s published service list, not invented for this demo.</p>
+      </div>
+      <div class="svc-grid">
+        <a class="svc reveal" href="#planner" data-jump="scope-lawn">
+          <h3>Lawn care</h3>
+          <p>Packages include mowing, trimming, edging, and leaf blowing, provided with care and attention to detail.</p>
+          <span>Open in the planner →</span>
+        </a>
+        <a class="svc reveal" href="#planner" data-jump="scope-install">
+          <h3>Landscape installation</h3>
+          <p>Plant bed design, sod or seed, mulch and bark, walkways, garden beds, fences, and the maintenance notes for each selection.</p>
+          <span>Open in the planner →</span>
+        </a>
+        <a class="svc reveal" href="#planner" data-jump="scope-hard">
+          <h3>Hardscapes</h3>
+          <p>Paver patios and walkways, retaining walls, and outdoor fireplaces or firepits, with local material resources.</p>
+          <span>Open in the planner →</span>
+        </a>
+        <a class="svc reveal" href="#planner" data-jump="scope-irrig">
+          <h3>Irrigation</h3>
+          <p>Installation, drip zones, head-to-head coverage, a customized watering schedule, and scheduled spring start-up and fall winterizing.</p>
+          <span>Open in the planner →</span>
+        </a>
+        <a class="svc reveal" href="#planner" data-jump="scope-winter">
+          <h3>Winter services</h3>
+          <p>Tree pruning, irrigation blow-outs, and sand and salt spreading when safety on walks or lots is a concern.</p>
+          <span>Open in the planner →</span>
+        </a>
+        <a class="svc reveal" href="#planner" data-jump="scope-commercial">
+          <h3>HOA &amp; commercial</h3>
+          <p>Maintenance packages for property managers, and tree and shrub care for smaller commercial and HOA properties around Tacoma.</p>
+          <span>Open in the planner →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="deep" aria-labelledby="about-h">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <span class="eyebrow">From the owner</span>
+        <blockquote>
+          “We believe that the best type of business is created by a satisfied customer”
+          <cite>— Agustin Simental, Owner</cite>
+        </blockquote>
+      </div>
+      <div class="about-copy reveal">
+        <h2 id="about-h">A family-owned company, founded in 2017.</h2>
+        <p>ECO Landscaping LLC was founded on the visions of Agustin Simental. After 15 years of experience, he decided to begin his own journey and founded the company in 2017 — a family-owned company offering services in Pierce and King County.</p>
+        <p>Unified Business Identifier: 604-176-163. Washington contractor registration <a href="https://lni.wa.gov/licensing-permits/contractors/hiring-a-contractor/hire-smart-step-by-step">ECOLALL833QM</a> — verify with Washington L&amp;I.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Gallery</span>
+        <h2 id="work-h">The kinds of jobs published on their live gallery.</h2>
+        <p>Photographs from the live site are not copied here. Each panel is a clearly marked placeholder for a project type ECO Landscaping LLC already shows in its gallery.</p>
+      </div>
+      <div class="work-grid">
+        <figure class="ph reveal">
+          <div class="ph-art">[Placeholder — Gallery image from ECO Landscaping’s published work: Fall Clean-Up]</div>
+          <figcaption>
+            <h3>Fall clean-up</h3>
+            <p class="note">Their gallery describes a before-and-after fall clean-up, with debris hauled away.</p>
+          </figcaption>
+        </figure>
+        <figure class="ph reveal">
+          <div class="ph-art">[Placeholder — Gallery image from ECO Landscaping’s published work: Sod Installation]</div>
+          <figcaption>
+            <h3>Sod installation</h3>
+            <p class="note">Their gallery describes leveling an area and installing fresh sod from Country Green Turf farms.</p>
+          </figcaption>
+        </figure>
+        <figure class="ph reveal">
+          <div class="ph-art">[Placeholder — Gallery image from ECO Landscaping’s published work: Hardscape / brick install]</div>
+          <figcaption>
+            <h3>Hardscape install</h3>
+            <p class="note">Their gallery includes before, in-progress, and after frames of a brick hardscape install, and groundwork for a retaining wall.</p>
+          </figcaption>
+        </figure>
+        <figure class="ph reveal">
+          <div class="ph-art">[Placeholder — Gallery image from ECO Landscaping’s published work: Fine bark and planting]</div>
+          <figcaption>
+            <h3>Fine bark and planting</h3>
+            <p class="note">Their gallery shows laying fine bark and planting after a “before” of the same area.</p>
+          </figcaption>
+        </figure>
+        <figure class="ph reveal">
+          <div class="ph-art">[Placeholder — Gallery image from ECO Landscaping’s published work: Shrub pruning]</div>
+          <figcaption>
+            <h3>Shrub pruning</h3>
+            <p class="note">Described on their gallery as work for clients on a pruning schedule, to keep a tidy appearance.</p>
+          </figcaption>
+        </figure>
+        <figure class="ph reveal">
+          <div class="ph-art">[Placeholder — Gallery image from ECO Landscaping’s published work: Ice management]</div>
+          <figcaption>
+            <h3>Ice management</h3>
+            <p class="note">Their gallery notes icy parking lots or sidewalks as a safety concern, and that the crew has tools for winter weather.</p>
+          </figcaption>
+        </figure>
+      </div>
+      <p class="area-note note">[Placeholder — Verified customer reviews / Google or Yelp rating link from ECO Landscaping]. A published Yelp page exists at <a href="https://www.yelp.com/biz/eco-landscaping-tacoma">yelp.com/biz/eco-landscaping-tacoma</a>; this demo does not invent a star rating or quote reviews. [Placeholder — Warranty / workmanship terms from ECO Landscaping].</p>
+    </div>
+  </section>
+
+  <section id="area" class="stone" aria-labelledby="area-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Service area</span>
+        <h2 id="area-h">Greater King and Pierce County, as published on their service-area page.</h2>
+        <p>These are the places listed on ecolandscapingllc.org/service-area. Footer on the live site also names Tacoma, WA.</p>
+      </div>
+      <ul class="area-list reveal">
+        <li><span>Lakewood</span></li>
+        <li><span>Steilacoom</span></li>
+        <li><span>University Place</span></li>
+        <li><span>Lacey</span></li>
+        <li><span>Dupont</span></li>
+        <li><span>Seattle</span></li>
+        <li><span>Puyallup</span></li>
+        <li><span>Auburn</span></li>
+        <li><span>Federal Way</span></li>
+        <li><span>Tacoma</span></li>
+        <li><span>Gig Harbor</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="estimate" aria-labelledby="est-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Estimate request preview</span>
+        <h2 id="est-h">See the request before anything would be sent.</h2>
+        <p>This is a concept-demo preview only. Nothing is submitted — the form cannot send (<code>form-action</code> is disabled). On the live service, estimates are free. Call or email to schedule a site visit; a representative can come for a free site evaluation, and estimates are emailed after review of the supplies and services needed.</p>
+      </div>
+      <div class="est-grid">
+        <form class="est reveal" id="est-form" action="#" method="post">
+          <div class="field">
+            <label for="f-name">Name <span class="req">(required)</span></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-contact">Phone or email <span class="req">(required)</span></label>
+            <input id="f-contact" name="contact" type="text" autocomplete="tel" required>
+          </div>
+          <div class="field">
+            <label for="f-job">Job type <span class="req">(required)</span></label>
+            <select id="f-job" name="job" required>
+              <option value="">Select a published service</option>
+              <option>Lawn care</option>
+              <option>Landscape installation</option>
+              <option>Hardscapes</option>
+              <option>Irrigation</option>
+              <option>Winter services</option>
+              <option>Commercial &amp; HOA</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-town">Town <span class="req">(required)</span></label>
+            <select id="f-town" name="town" required>
+              <option value="">Select a published city</option>
+              <option>Lakewood</option>
+              <option>Steilacoom</option>
+              <option>University Place</option>
+              <option>Lacey</option>
+              <option>Dupont</option>
+              <option>Seattle</option>
+              <option>Puyallup</option>
+              <option>Auburn</option>
+              <option>Federal Way</option>
+              <option>Tacoma</option>
+              <option>Gig Harbor</option>
+              <option>Other (describe below)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-desc">Short description <span class="req">(required)</span></label>
+            <textarea id="f-desc" name="desc" required maxlength="600"></textarea>
+          </div>
+          <div class="field">
+            <label for="f-time">Preferred time <span class="opt">(optional)</span></label>
+            <input id="f-time" name="time" type="text" autocomplete="off">
+          </div>
+          <button class="btn" type="submit" id="est-submit">Preview this request</button>
+          <p class="form-note">Demo only — this button does not send a message to ECO Landscaping LLC. To reach them, call or text <a href="tel:+12532674611">(253) 267-4611</a> or email <a href="mailto:ecolandscaping253@gmail.com">ecolandscaping253@gmail.com</a>. Hours: 8:00am–5:00pm Monday–Saturday; Sunday closed.</p>
+          <p class="success" id="est-success" role="status">Nothing was sent. This is a concept demo preview of an estimate request for ECO Landscaping LLC.</p>
+        </form>
+        <aside class="ticket reveal" aria-live="polite">
+          <h3>Request preview</h3>
+          <p class="preview-note" id="ticket-empty">Fill in the form to see a preview of the request. No data leaves this page.</p>
+          <dl id="ticket-body" hidden>
+            <dt>Name</dt><dd id="t-name">—</dd>
+            <dt>Contact</dt><dd id="t-contact">—</dd>
+            <dt>Job type</dt><dd id="t-job">—</dd>
+            <dt>Town</dt><dd id="t-town">—</dd>
+            <dt>Description</dt><dd id="t-desc">—</dd>
+            <dt>Preferred time</dt><dd id="t-time">—</dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <h2>ECO Landscaping LLC</h2>
+      <p>Family-owned lawn care, landscape installation, hardscape, and irrigation for the greater King and Pierce County areas.</p>
+      <p><a href="tel:+12532674611">(253) 267-4611</a><br>
+      <a href="mailto:ecolandscaping253@gmail.com">ecolandscaping253@gmail.com</a><br>
+      Tacoma, WA<br>
+      Hours: 8:00am–5:00pm Monday–Saturday. Sunday closed.</p>
+    </div>
+    <div>
+      <h3>Registration</h3>
+      <p>Washington contractor registration <strong style="color:#fff">ECOLALL833QM</strong><br>
+      <a href="https://lni.wa.gov/licensing-permits/contractors/hiring-a-contractor/hire-smart-step-by-step">Verify with Washington L&amp;I</a></p>
+      <p>Unified Business Identifier: 604-176-163</p>
+    </div>
+    <div>
+      <h3>Published links</h3>
+      <ul>
+        <li><a href="https://www.ecolandscapingllc.org/">Live website</a></li>
+        <li><a href="https://www.facebook.com/ECOLandscapingLLC/">Facebook</a></li>
+        <li><a href="https://www.instagram.com/ecolandscapingllc/">Instagram</a></li>
+        <li><a href="https://www.yelp.com/biz/eco-landscaping-tacoma">Yelp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <p class="note">A concept demo by <strong style="color:#fff">B&amp;C Web Services</strong>. Concept demo using publicly published company details; not affiliated with or endorsed by ECO Landscaping LLC until approved.</p>
+    <p class="note">No prices, reviews, ratings, testimonials, warranties, or statistics were invented for this page. Placeholder labels mark anything that still has to come from ECO Landscaping LLC.</p>
+  </div>
+</footer>
+
+<div class="callbar" id="callbar">
+  <div class="inner">
+    <a class="btn" href="tel:+12532674611">Call (253) 267-4611</a>
+    <a class="btn btn-light" href="#estimate">Request estimate</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var body = document.body;
+  if (reduce) body.classList.add('rm');
+
+  var btn = document.getElementById('menu-btn');
+  var nav = document.getElementById('site-nav');
+  function setMenu(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  btn.addEventListener('click', function(){ setMenu(!nav.classList.contains('is-open')); });
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setMenu(false); });
+
+  function syncScope(){
+    document.querySelectorAll('.scope-card').forEach(function(card){
+      var id = card.getAttribute('data-for');
+      var radio = document.getElementById(id);
+      card.open = !!(radio && radio.checked);
+    });
+  }
+  document.querySelectorAll('input[name=scope]').forEach(function(r){
+    r.addEventListener('change', syncScope);
+  });
+  document.querySelectorAll('.scope-card').forEach(function(card){
+    card.addEventListener('toggle', function(){
+      if (card.open){
+        var id = card.getAttribute('data-for');
+        var radio = document.getElementById(id);
+        if (radio && !radio.checked){ radio.checked = true; syncScope(); }
+      }
+    });
+  });
+  syncScope();
+  document.querySelectorAll('.svc[data-jump]').forEach(function(link){
+    link.addEventListener('click', function(){
+      var id = link.getAttribute('data-jump');
+      var radio = document.getElementById(id);
+      if (radio) radio.checked = true;
+    });
+  });
+
+  var form = document.getElementById('est-form');
+  var fields = ['name','contact','job','town','desc','time'];
+  function paint(){
+    var any = false;
+    fields.forEach(function(k){
+      var src = document.getElementById('f-' + (k==='desc'?'desc':k==='contact'?'contact':k==='name'?'name':k==='job'?'job':k==='town'?'town':'time'));
+      var map = {name:'t-name',contact:'t-contact',job:'t-job',town:'t-town',desc:'t-desc',time:'t-time'};
+      var el = document.getElementById(map[k]);
+      var v = (src && src.value.trim()) || '—';
+      el.textContent = v;
+      if (src && src.value.trim()) any = true;
+    });
+    document.getElementById('ticket-empty').hidden = any;
+    document.getElementById('ticket-body').hidden = !any;
+  }
+  form.addEventListener('input', paint);
+  form.addEventListener('change', paint);
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!form.checkValidity()){ form.reportValidity(); return; }
+    paint();
+    var ok = document.getElementById('est-success');
+    ok.classList.add('show');
+    ok.focus && ok.focus();
+  });
+
+  var bar = document.getElementById('callbar');
+  var cta = document.querySelector('.hero-cta');
+  function tuckBar(tuck){
+    if (!bar) return;
+    bar.classList.toggle('is-tucked', !!tuck);
+  }
+  if (cta && 'IntersectionObserver' in window && window.matchMedia('(max-width:800px)').matches){
+    var ioBar = new IntersectionObserver(function(entries){
+      var e = entries[0];
+      // Hide the bar only when the hero CTA is fully on screen.
+      tuckBar(e.isIntersecting && e.intersectionRatio >= 1);
+    }, {threshold:[0,1]});
+    ioBar.observe(cta);
+  } else {
+    tuckBar(false);
+  }
+  window.matchMedia('(max-width:800px)').addEventListener('change', function(mq){
+    if (!mq.matches) tuckBar(false);
+  });
+
+  function armReveals(){
+    body.classList.add('eco-on');
+    var nodes = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)){
+      nodes.forEach(function(n){ n.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    nodes.forEach(function(n){ io.observe(n); });
+    setTimeout(function(){ nodes.forEach(function(n){ n.classList.add('in'); }); }, 4000);
+  }
+  armReveals();
+})();
+</script>
+</body>
+</html>
